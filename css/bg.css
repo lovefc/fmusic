@@ -1,0 +1,1308 @@
+body {
+  background-color: #02080f;
+}
+.stars-wrapper {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: -webkit-radial-gradient(center ellipse, #061a33 0%, #000000 100%);
+  background: radial-gradient(ellipse at center, #061a33 0%, #000000 100%);
+  background-size: 110%;
+  background-position: 100% 100%;
+  overflow: hidden;
+}
+.title-wrapper {
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 1;
+}
+.title-wrapper .title {
+  width: 31vw;
+  position: absolute;
+  text-align: justify;
+  top: 34.2vh;
+  left: 45vw;
+  right: 15%;
+  font-size: 5vw;
+  line-height: 1.3;
+  font-weight: normal;
+  margin: 0;
+  color: #fff;
+  color: #030f1d;
+  opacity: .8;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+}
+.title-wrapper .title:after {
+  content: attr(data-title);
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: -webkit-linear-gradient(325deg, #fcf9ef 0%, rgba(252, 249, 239, 0.7) 30%, rgba(252, 249, 239, 0.01) 100%);
+  background: linear-gradient(125deg, #fcf9ef 0%, rgba(252, 249, 239, 0.7) 30%, rgba(252, 249, 239, 0.01) 100%);
+  background-repeat: no-repeat;
+  background-position: 100% 0;
+  background-size: 100%;
+  -webkit-background-clip: text;
+  overflow: hidden;
+  color: transparent;
+}
+.moon-wrapper {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  z-index: 1;
+}
+.moon {
+  width: 14vw;
+  height: 14vw;
+  position: absolute;
+  top: 33vh;
+  left: 24vw;
+  border-radius: 50%;
+  background: #e7e1df  50% 50% no-repeat;
+  background-size: 102%;
+  box-shadow: 0px 0px 80px 0px rgba(183, 176, 130, 0.6), 0px 0px 350px 0px rgba(222, 221, 215, 0.3);
+}
+.moon:after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 5%;
+  top: 5%;
+  width: 90%;
+  height: 90%;
+  border-radius: 50%;
+  background-color: transparent;
+  box-shadow: 0px 0px 150px 0px rgba(183, 176, 130, 0.1), 0px 0px 340px 0px rgba(222, 221, 215, 0.1);
+  -webkit-filter: blur(10px);
+          filter: blur(10px);
+}
+.stars-cluster {
+  position: absolute;
+  left: 3%;
+  right: 3%;
+  top: 3%;
+  bottom: 3%;
+}
+.stars-cluster.stars-cluster-1 {
+  left: 20%;
+  right: 25%;
+  top: 20%;
+  bottom: 40%;
+}
+.stars-cluster.stars-cluster-1 .star-7,
+.stars-cluster.stars-cluster-1 .star-22,
+.stars-cluster.stars-cluster-1 .star-30 {
+  -webkit-animation: shooting-star 10s ease-out 1s forwards;
+          animation: shooting-star 10s ease-out 1s forwards;
+}
+.stars-cluster.stars-cluster-1 .star-22 {
+  -webkit-animation-delay: 4s;
+          animation-delay: 4s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+}
+.stars-cluster.stars-cluster-1 .star-30 {
+  -webkit-animation-delay: 7s;
+          animation-delay: 7s;
+}
+.stars-cluster.stars-cluster-1 .star-20 {
+  -webkit-animation: shooting-star-2 8s ease-out 5s forwards infinite;
+          animation: shooting-star-2 8s ease-out 5s forwards infinite;
+}
+.stars-cluster.stars-cluster-2 .star-11,
+.stars-cluster.stars-cluster-2 .star-16 {
+  -webkit-animation: shooting-star 10s ease-out 8s forwards;
+          animation: shooting-star 10s ease-out 8s forwards;
+}
+.stars-cluster.stars-cluster-2 .star-16 {
+  -webkit-animation-delay: 1s;
+          animation-delay: 1s;
+}
+.stars-cluster.stars-cluster-2 .star-7 {
+  -webkit-animation-delay: 9s;
+          animation-delay: 9s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+}
+.stars-cluster.stars-cluster-2 .star-4 {
+  -webkit-animation: shooting-star-2 11s ease-out 6s forwards infinite;
+          animation: shooting-star-2 11s ease-out 6s forwards infinite;
+}
+.star {
+  background-color: #f3f2d6;
+  border-radius: 50%;
+  position: absolute;
+  -webkit-animation-name: pulsate;
+          animation-name: pulsate;
+  -webkit-animation-timing-function: ease-in-out;
+          animation-timing-function: ease-in-out;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-direction: alternate-reverse;
+          animation-direction: alternate-reverse;
+}
+/**
+ * ----------------------------------------
+ * star generator
+ * ---------------------------------------
+*/
+.stars-cluster-1 .star-1 {
+  width: 3px;
+  height: 3px;
+  opacity: 0.58538155;
+  top: 38.15727651%;
+  left: 22.25070759%;
+  -webkit-animation-duration: 2.00105257s;
+          animation-duration: 2.00105257s;
+  -webkit-animation-delay: 0.75991641s;
+          animation-delay: 0.75991641s;
+}
+.stars-cluster-1 .star-2 {
+  width: 1px;
+  height: 1px;
+  opacity: 0.51874459;
+  top: 17.91606576%;
+  left: 47.0479337%;
+  -webkit-animation-duration: 0.41815195s;
+          animation-duration: 0.41815195s;
+  -webkit-animation-delay: 0.98582734s;
+          animation-delay: 0.98582734s;
+}
+.stars-cluster-1 .star-3 {
+  width: 3px;
+  height: 3px;
+  opacity: 0.28994303;
+  top: 22.15215622%;
+  left: 3.05990623%;
+  -webkit-animation-duration: 2.32843759s;
+          animation-duration: 2.32843759s;
+  -webkit-animation-delay: 0.44073083s;
+          animation-delay: 0.44073083s;
+}
+.stars-cluster-1 .star-4 {
+  width: 2px;
+  height: 2px;
+  opacity: 0.21053665;
+  top: 32.23528154%;
+  left: 28.14530418%;
+  -webkit-animation-duration: 0.6369875s;
+          animation-duration: 0.6369875s;
+  -webkit-animation-delay: 0.86691446s;
+          animation-delay: 0.86691446s;
+}
+.stars-cluster-1 .star-5 {
+  width: 2px;
+  height: 2px;
+  opacity: 0.26247414;
+  top: 83.9202157%;
+  left: 68.47382858%;
+  -webkit-animation-duration: 1.6117763s;
+          animation-duration: 1.6117763s;
+  -webkit-animation-delay: 0.97376709s;
+          animation-delay: 0.97376709s;
+}
+.stars-cluster-1 .star-6 {
+  width: 3px;
+  height: 3px;
+  opacity: 0.77229373;
+  top: 49.61025927%;
+  left: 92.79107803%;
+  -webkit-animation-duration: 2.2912936s;
+          animation-duration: 2.2912936s;
+  -webkit-animation-delay: 0.57140768s;
+          animation-delay: 0.57140768s;
+}
+.stars-cluster-1 .star-7 {
+  width: 2px;
+  height: 2px;
+  opacity: 0.54869421;
+  top: 19.73430803%;
+  left: 84.23962574%;
+  -webkit-animation-duration: 0.64875593s;
+          animation-duration: 0.64875593s;
+  -webkit-animation-delay: 0.88255993s;
+          animation-delay: 0.88255993s;
+}
+.stars-cluster-1 .star-8 {
+  width: 2px;
+  height: 2px;
+  opacity: 0.33248085;
+  top: 67.50749333%;
+  left: 24.0864682%;
+  -webkit-animation-duration: 0.82725613s;
+          animation-duration: 0.82725613s;
+  -webkit-animation-delay: 0.25256893s;
+          animation-delay: 0.25256893s;
+}
+.stars-cluster-1 .star-9 {
+  width: 2px;
+  height: 2px;
+  opacity: 0.66955627;
+  top: 73.80246667%;
+  left: 3.38341221%;
+  -webkit-animation-duration: 0.41947977s;
+          animation-duration: 0.41947977s;
+  -webkit-animation-delay: 0.68994882s;
+          animation-delay: 0.68994882s;
+}
+.stars-cluster-1 .star-10 {
+  width: 2px;
+  height: 2px;
+  opacity: 0.29348586;
+  top: 59.85021719%;
+  left: 64.2333529%;
+  -webkit-animation-duration: 2.38044502s;
+          animation-duration: 2.38044502s;
+  -webkit-animation-delay: 0.79682409s;
+          animation-delay: 0.79682409s;
+}
+.stars-cluster-1 .star-11 {
+  width: 2px;
+  height: 2px;
+  opacity: 0.44634838;
+  top: 34.28912302%;
+  left: 82.7329746%;
+  -webkit-animation-duration: 1.91330973s;
+          animation-duration: 1.91330973s;
+  -webkit-animation-delay: 0.44937917s;
+          animation-delay: 0.44937917s;
+}
+.stars-cluster-1 .star-12 {
+  width: 2px;
+  height: 2px;
+  opacity: 0.77333216;
+  top: 75.42536624%;
+  left: 43.09377526%;
+  -webkit-animation-duration: 0.57065016s;
+          animation-duration: 0.57065016s;
+  -webkit-animation-delay: 0.81522398s;
+          animation-delay: 0.81522398s;
+}
+.stars-cluster-1 .star-13 {
+  width: 3px;
+  height: 3px;
+  opacity: 0.59869142;
+  top: 19.88572935%;
+  left: 53.89462411%;
+  -webkit-animation-duration: 1.67609094s;
+          animation-duration: 1.67609094s;
+  -webkit-animation-delay: 0.25142256s;
+          animation-delay: 0.25142256s;
+}
+.stars-cluster-1 .star-14 {
+  width: 2px;
+  height: 2px;
+  opacity: 0.77547573;
+  top: 44.61666881%;
+  left: 54.80605983%;
+  -webkit-animation-duration: 1.98446316s;
+          animation-duration: 1.98446316s;
+  -webkit-animation-delay: 0.82197803s;
+          animation-delay: 0.82197803s;
+}
+.stars-cluster-1 .star-15 {
+  width: 2px;
+  height: 2px;
+  opacity: 0.44857266;
+  top: 97.89845843%;
+  left: 0.68779218%;
+  -webkit-animation-duration: 2.07508004s;
+          animation-duration: 2.07508004s;
+  -webkit-animation-delay: 0.19611799s;
+          animation-delay: 0.19611799s;
+}
+.stars-cluster-1 .star-16 {
+  width: 2px;
+  height: 2px;
+  opacity: 0.36531183;
+  top: 5.17890076%;
+  left: 63.82393753%;
+  -webkit-animation-duration: 1.3229555s;
+          animation-duration: 1.3229555s;
+  -webkit-animation-delay: 0.25832456s;
+          animation-delay: 0.25832456s;
+}
+.stars-cluster-1 .star-17 {
+  width: 3px;
+  height: 3px;
+  opacity: 0.57051671;
+  top: 30.17851226%;
+  left: 29.1262961%;
+  -webkit-animation-duration: 0.63538241s;
+          animation-duration: 0.63538241s;
+  -webkit-animation-delay: 0.0919407s;
+          animation-delay: 0.0919407s;
+}
+.stars-cluster-1 .star-18 {
+  width: 3px;
+  height: 3px;
+  opacity: 0.295198;
+  top: 83.52756421%;
+  left: 25.13667024%;
+  -webkit-animation-duration: 1.10243399s;
+          animation-duration: 1.10243399s;
+  -webkit-animation-delay: 0.46310284s;
+          animation-delay: 0.46310284s;
+}
+.stars-cluster-1 .star-19 {
+  width: 1px;
+  height: 1px;
+  opacity: 0.21457849;
+  top: 77.13207898%;
+  left: 82.66601099%;
+  -webkit-animation-duration: 1.05814005s;
+          animation-duration: 1.05814005s;
+  -webkit-animation-delay: 0.05012952s;
+          animation-delay: 0.05012952s;
+}
+.stars-cluster-1 .star-20 {
+  width: 2px;
+  height: 2px;
+  opacity: 0.42646016;
+  top: 92.385347%;
+  left: 46.65974679%;
+  -webkit-animation-duration: 0.63324183s;
+          animation-duration: 0.63324183s;
+  -webkit-animation-delay: 0.34436607s;
+          animation-delay: 0.34436607s;
+}
+.stars-cluster-1 .star-21 {
+  width: 1px;
+  height: 1px;
+  opacity: 0.38711444;
+  top: 28.4985319%;
+  left: 8.15226028%;
+  -webkit-animation-duration: 1.51300259s;
+          animation-duration: 1.51300259s;
+  -webkit-animation-delay: 0.01952412s;
+          animation-delay: 0.01952412s;
+}
+.stars-cluster-1 .star-22 {
+  width: 1px;
+  height: 1px;
+  opacity: 0.51535225;
+  top: 66.43370129%;
+  left: 66.12047097%;
+  -webkit-animation-duration: 1.20317851s;
+          animation-duration: 1.20317851s;
+  -webkit-animation-delay: 0.88113828s;
+          animation-delay: 0.88113828s;
+}
+.stars-cluster-1 .star-23 {
+  width: 1px;
+  height: 1px;
+  opacity: 0.71429244;
+  top: 65.3373485%;
+  left: 13.99081878%;
+  -webkit-animation-duration: 0.58147328s;
+          animation-duration: 0.58147328s;
+  -webkit-animation-delay: 0.7165361s;
+          animation-delay: 0.7165361s;
+}
+.stars-cluster-1 .star-24 {
+  width: 1px;
+  height: 1px;
+  opacity: 0.67557817;
+  top: 87.69452807%;
+  left: 71.10428456%;
+  -webkit-animation-duration: 1.15684164s;
+          animation-duration: 1.15684164s;
+  -webkit-animation-delay: 0.87364508s;
+          animation-delay: 0.87364508s;
+}
+.stars-cluster-1 .star-25 {
+  width: 2px;
+  height: 2px;
+  opacity: 0.46594618;
+  top: 98.49686727%;
+  left: 10.47464893%;
+  -webkit-animation-duration: 2.08548763s;
+          animation-duration: 2.08548763s;
+  -webkit-animation-delay: 0.37207866s;
+          animation-delay: 0.37207866s;
+}
+.stars-cluster-1 .star-26 {
+  width: 3px;
+  height: 3px;
+  opacity: 0.3442723;
+  top: 77.82386648%;
+  left: 47.2950479%;
+  -webkit-animation-duration: 1.23049031s;
+          animation-duration: 1.23049031s;
+  -webkit-animation-delay: 0.30629827s;
+          animation-delay: 0.30629827s;
+}
+.stars-cluster-1 .star-27 {
+  width: 3px;
+  height: 3px;
+  opacity: 0.25267125;
+  top: 86.30067336%;
+  left: 71.51542264%;
+  -webkit-animation-duration: 1.48330857s;
+          animation-duration: 1.48330857s;
+  -webkit-animation-delay: 0.04000025s;
+          animation-delay: 0.04000025s;
+}
+.stars-cluster-1 .star-28 {
+  width: 2px;
+  height: 2px;
+  opacity: 0.58824315;
+  top: 23.07334342%;
+  left: 85.77116986%;
+  -webkit-animation-duration: 0.73330507s;
+          animation-duration: 0.73330507s;
+  -webkit-animation-delay: 0.43798716s;
+          animation-delay: 0.43798716s;
+}
+.stars-cluster-1 .star-29 {
+  width: 3px;
+  height: 3px;
+  opacity: 0.32561435;
+  top: 8.5316007%;
+  left: 26.54741085%;
+  -webkit-animation-duration: 1.62359414s;
+          animation-duration: 1.62359414s;
+  -webkit-animation-delay: 0.04052586s;
+          animation-delay: 0.04052586s;
+}
+.stars-cluster-1 .star-30 {
+  width: 2px;
+  height: 2px;
+  opacity: 0.7926184;
+  top: 89.76289567%;
+  left: 71.12015327%;
+  -webkit-animation-duration: 1.3507575s;
+          animation-duration: 1.3507575s;
+  -webkit-animation-delay: 0.3810462s;
+          animation-delay: 0.3810462s;
+}
+.stars-cluster-1 .star-31 {
+  width: 2px;
+  height: 2px;
+  opacity: 0.58397239;
+  top: 2.38939996%;
+  left: 91.04102154%;
+  -webkit-animation-duration: 0.54543291s;
+          animation-duration: 0.54543291s;
+  -webkit-animation-delay: 0.36160792s;
+          animation-delay: 0.36160792s;
+}
+.stars-cluster-1 .star-32 {
+  width: 1px;
+  height: 1px;
+  opacity: 0.58615152;
+  top: 69.16721929%;
+  left: 57.97301184%;
+  -webkit-animation-duration: 0.40384697s;
+          animation-duration: 0.40384697s;
+  -webkit-animation-delay: 0.38730863s;
+          animation-delay: 0.38730863s;
+}
+.stars-cluster-1 .star-33 {
+  width: 2px;
+  height: 2px;
+  opacity: 0.54138191;
+  top: 72.53922964%;
+  left: 75.95981148%;
+  -webkit-animation-duration: 0.58905369s;
+          animation-duration: 0.58905369s;
+  -webkit-animation-delay: 0.89824229s;
+          animation-delay: 0.89824229s;
+}
+.stars-cluster-1 .star-34 {
+  width: 2px;
+  height: 2px;
+  opacity: 0.5323306;
+  top: 69.67210651%;
+  left: 19.38895914%;
+  -webkit-animation-duration: 1.98150941s;
+          animation-duration: 1.98150941s;
+  -webkit-animation-delay: 0.95611682s;
+          animation-delay: 0.95611682s;
+}
+.stars-cluster-1 .star-35 {
+  width: 2px;
+  height: 2px;
+  opacity: 0.79814252;
+  top: 47.20278196%;
+  left: 11.94356016%;
+  -webkit-animation-duration: 0.81415296s;
+          animation-duration: 0.81415296s;
+  -webkit-animation-delay: 0.74271445s;
+          animation-delay: 0.74271445s;
+}
+.stars-cluster-1 .star-36 {
+  width: 2px;
+  height: 2px;
+  opacity: 0.65035083;
+  top: 52.66909844%;
+  left: 96.60647761%;
+  -webkit-animation-duration: 1.03350116s;
+          animation-duration: 1.03350116s;
+  -webkit-animation-delay: 0.0084278s;
+          animation-delay: 0.0084278s;
+}
+.stars-cluster-1 .star-37 {
+  width: 2px;
+  height: 2px;
+  opacity: 0.20170057;
+  top: 77.77870882%;
+  left: 18.14131711%;
+  -webkit-animation-duration: 0.47674162s;
+          animation-duration: 0.47674162s;
+  -webkit-animation-delay: 0.66524482s;
+          animation-delay: 0.66524482s;
+}
+.stars-cluster-1 .star-38 {
+  width: 2px;
+  height: 2px;
+  opacity: 0.28821604;
+  top: 59.91543957%;
+  left: 93.22059019%;
+  -webkit-animation-duration: 0.90836786s;
+          animation-duration: 0.90836786s;
+  -webkit-animation-delay: 0.6120774s;
+          animation-delay: 0.6120774s;
+}
+.stars-cluster-1 .star-39 {
+  width: 3px;
+  height: 3px;
+  opacity: 0.430749;
+  top: 85.02366534%;
+  left: 0.41081025%;
+  -webkit-animation-duration: 0.51134587s;
+          animation-duration: 0.51134587s;
+  -webkit-animation-delay: 0.29000129s;
+          animation-delay: 0.29000129s;
+}
+.stars-cluster-1 .star-40 {
+  width: 3px;
+  height: 3px;
+  opacity: 0.74796643;
+  top: 30.32913697%;
+  left: 76.81310722%;
+  -webkit-animation-duration: 0.63640448s;
+          animation-duration: 0.63640448s;
+  -webkit-animation-delay: 0.56550236s;
+          animation-delay: 0.56550236s;
+}
+.stars-cluster-2 .star-1 {
+  width: 3px;
+  height: 3px;
+  opacity: 0.23529821;
+  top: 30.29307704%;
+  left: 90.78159865%;
+  -webkit-animation-duration: 1.62215645s;
+          animation-duration: 1.62215645s;
+  -webkit-animation-delay: 0.97547979s;
+          animation-delay: 0.97547979s;
+}
+.stars-cluster-2 .star-2 {
+  width: 4px;
+  height: 4px;
+  opacity: 0.24501273;
+  top: 16.70595193%;
+  left: 58.45018355%;
+  -webkit-animation-duration: 0.51563945s;
+          animation-duration: 0.51563945s;
+  -webkit-animation-delay: 0.7901141s;
+          animation-delay: 0.7901141s;
+}
+.stars-cluster-2 .star-3 {
+  width: 3px;
+  height: 3px;
+  opacity: 0.73731405;
+  top: 45.34655567%;
+  left: 11.10612608%;
+  -webkit-animation-duration: 0.79469479s;
+          animation-duration: 0.79469479s;
+  -webkit-animation-delay: 0.36279605s;
+          animation-delay: 0.36279605s;
+}
+.stars-cluster-2 .star-4 {
+  width: 4px;
+  height: 4px;
+  opacity: 0.20483577;
+  top: 22.00277497%;
+  left: 36.33953214%;
+  -webkit-animation-duration: 1.84518849s;
+          animation-duration: 1.84518849s;
+  -webkit-animation-delay: 0.02607689s;
+          animation-delay: 0.02607689s;
+}
+.stars-cluster-2 .star-5 {
+  width: 4px;
+  height: 4px;
+  opacity: 0.62568535;
+  top: 3.15894149%;
+  left: 22.3785392%;
+  -webkit-animation-duration: 2.32122894s;
+          animation-duration: 2.32122894s;
+  -webkit-animation-delay: 0.38921666s;
+          animation-delay: 0.38921666s;
+}
+.stars-cluster-2 .star-6 {
+  width: 3px;
+  height: 3px;
+  opacity: 0.77766733;
+  top: 46.48983781%;
+  left: 89.9193221%;
+  -webkit-animation-duration: 1.66560112s;
+          animation-duration: 1.66560112s;
+  -webkit-animation-delay: 0.08798506s;
+          animation-delay: 0.08798506s;
+}
+.stars-cluster-2 .star-7 {
+  width: 2px;
+  height: 2px;
+  opacity: 0.48773747;
+  top: 93.42742942%;
+  left: 7.11442789%;
+  -webkit-animation-duration: 1.97753358s;
+          animation-duration: 1.97753358s;
+  -webkit-animation-delay: 0.37188168s;
+          animation-delay: 0.37188168s;
+}
+.stars-cluster-2 .star-8 {
+  width: 3px;
+  height: 3px;
+  opacity: 0.4386942;
+  top: 5.73216397%;
+  left: 16.42310715%;
+  -webkit-animation-duration: 1.00010144s;
+          animation-duration: 1.00010144s;
+  -webkit-animation-delay: 0.44865052s;
+          animation-delay: 0.44865052s;
+}
+.stars-cluster-2 .star-9 {
+  width: 3px;
+  height: 3px;
+  opacity: 0.63374321;
+  top: 14.06387538%;
+  left: 86.63346681%;
+  -webkit-animation-duration: 2.31164768s;
+          animation-duration: 2.31164768s;
+  -webkit-animation-delay: 0.18124616s;
+          animation-delay: 0.18124616s;
+}
+.stars-cluster-2 .star-10 {
+  width: 3px;
+  height: 3px;
+  opacity: 0.55585545;
+  top: 20.41974636%;
+  left: 47.99844248%;
+  -webkit-animation-duration: 0.9618875s;
+          animation-duration: 0.9618875s;
+  -webkit-animation-delay: 0.82188612s;
+          animation-delay: 0.82188612s;
+}
+.stars-cluster-2 .star-11 {
+  width: 4px;
+  height: 4px;
+  opacity: 0.34336863;
+  top: 82.72289122%;
+  left: 19.4155138%;
+  -webkit-animation-duration: 1.25543892s;
+          animation-duration: 1.25543892s;
+  -webkit-animation-delay: 0.16702879s;
+          animation-delay: 0.16702879s;
+}
+.stars-cluster-2 .star-12 {
+  width: 4px;
+  height: 4px;
+  opacity: 0.72293557;
+  top: 16.4990789%;
+  left: 5.00380122%;
+  -webkit-animation-duration: 0.87946919s;
+          animation-duration: 0.87946919s;
+  -webkit-animation-delay: 0.988179s;
+          animation-delay: 0.988179s;
+}
+.stars-cluster-2 .star-13 {
+  width: 3px;
+  height: 3px;
+  opacity: 0.24491092;
+  top: 54.47951837%;
+  left: 50.83055331%;
+  -webkit-animation-duration: 1.22770912s;
+          animation-duration: 1.22770912s;
+  -webkit-animation-delay: 0.8734613s;
+          animation-delay: 0.8734613s;
+}
+.stars-cluster-2 .star-14 {
+  width: 3px;
+  height: 3px;
+  opacity: 0.40289269;
+  top: 12.61118667%;
+  left: 15.51887561%;
+  -webkit-animation-duration: 1.60812529s;
+          animation-duration: 1.60812529s;
+  -webkit-animation-delay: 0.99462267s;
+          animation-delay: 0.99462267s;
+}
+.stars-cluster-2 .star-15 {
+  width: 3px;
+  height: 3px;
+  opacity: 0.44581057;
+  top: 43.55708715%;
+  left: 96.08205957%;
+  -webkit-animation-duration: 2.26719025s;
+          animation-duration: 2.26719025s;
+  -webkit-animation-delay: 0.17035816s;
+          animation-delay: 0.17035816s;
+}
+.stars-cluster-2 .star-16 {
+  width: 4px;
+  height: 4px;
+  opacity: 0.29606469;
+  top: 67.63028125%;
+  left: 94.81115015%;
+  -webkit-animation-duration: 1.46259022s;
+          animation-duration: 1.46259022s;
+  -webkit-animation-delay: 0.64414063s;
+          animation-delay: 0.64414063s;
+}
+.stars-cluster-2 .star-17 {
+  width: 3px;
+  height: 3px;
+  opacity: 0.76754268;
+  top: 14.08774601%;
+  left: 94.73368127%;
+  -webkit-animation-duration: 1.00289282s;
+          animation-duration: 1.00289282s;
+  -webkit-animation-delay: 0.1337747s;
+          animation-delay: 0.1337747s;
+}
+.stars-cluster-2 .star-18 {
+  width: 2px;
+  height: 2px;
+  opacity: 0.38571981;
+  top: 6.4579919%;
+  left: 44.14971792%;
+  -webkit-animation-duration: 2.35711545s;
+          animation-duration: 2.35711545s;
+  -webkit-animation-delay: 0.78913668s;
+          animation-delay: 0.78913668s;
+}
+.stars-cluster-2 .star-19 {
+  width: 3px;
+  height: 3px;
+  opacity: 0.77161144;
+  top: 85.70604015%;
+  left: 72.70367409%;
+  -webkit-animation-duration: 0.44524603s;
+          animation-duration: 0.44524603s;
+  -webkit-animation-delay: 0.79232656s;
+          animation-delay: 0.79232656s;
+}
+.stars-cluster-2 .star-20 {
+  width: 4px;
+  height: 4px;
+  opacity: 0.5770868;
+  top: 2.39901757%;
+  left: 6.81321884%;
+  -webkit-animation-duration: 0.63752906s;
+          animation-duration: 0.63752906s;
+  -webkit-animation-delay: 0.26857429s;
+          animation-delay: 0.26857429s;
+}
+.stars-cluster-2 .star-21 {
+  width: 4px;
+  height: 4px;
+  opacity: 0.50575862;
+  top: 58.96492384%;
+  left: 67.4610287%;
+  -webkit-animation-duration: 1.93983154s;
+          animation-duration: 1.93983154s;
+  -webkit-animation-delay: 0.93794359s;
+          animation-delay: 0.93794359s;
+}
+.stars-cluster-2 .star-22 {
+  width: 3px;
+  height: 3px;
+  opacity: 0.54593918;
+  top: 16.15368612%;
+  left: 30.21342999%;
+  -webkit-animation-duration: 0.71757932s;
+          animation-duration: 0.71757932s;
+  -webkit-animation-delay: 0.4555781s;
+          animation-delay: 0.4555781s;
+}
+.stars-cluster-2 .star-23 {
+  width: 3px;
+  height: 3px;
+  opacity: 0.74447843;
+  top: 35.70653666%;
+  left: 6.29509215%;
+  -webkit-animation-duration: 0.47775718s;
+          animation-duration: 0.47775718s;
+  -webkit-animation-delay: 0.48486101s;
+          animation-delay: 0.48486101s;
+}
+.stars-cluster-2 .star-24 {
+  width: 3px;
+  height: 3px;
+  opacity: 0.72154;
+  top: 32.39054657%;
+  left: 88.92387785%;
+  -webkit-animation-duration: 2.14007858s;
+          animation-duration: 2.14007858s;
+  -webkit-animation-delay: 0.0581613s;
+          animation-delay: 0.0581613s;
+}
+.stars-cluster-2 .star-25 {
+  width: 4px;
+  height: 4px;
+  opacity: 0.75444302;
+  top: 89.82525785%;
+  left: 89.19985099%;
+  -webkit-animation-duration: 2.27934454s;
+          animation-duration: 2.27934454s;
+  -webkit-animation-delay: 0.1927178s;
+          animation-delay: 0.1927178s;
+}
+.stars-cluster-2 .star-26 {
+  width: 4px;
+  height: 4px;
+  opacity: 0.40571686;
+  top: 14.7319875%;
+  left: 2.46132547%;
+  -webkit-animation-duration: 0.99201759s;
+          animation-duration: 0.99201759s;
+  -webkit-animation-delay: 0.45168176s;
+          animation-delay: 0.45168176s;
+}
+.stars-cluster-2 .star-27 {
+  width: 3px;
+  height: 3px;
+  opacity: 0.47492833;
+  top: 55.03269888%;
+  left: 6.15038259%;
+  -webkit-animation-duration: 0.91190916s;
+          animation-duration: 0.91190916s;
+  -webkit-animation-delay: 0.06140811s;
+          animation-delay: 0.06140811s;
+}
+.stars-cluster-2 .star-28 {
+  width: 4px;
+  height: 4px;
+  opacity: 0.55036903;
+  top: 29.12880606%;
+  left: 82.37410337%;
+  -webkit-animation-duration: 1.16445465s;
+          animation-duration: 1.16445465s;
+  -webkit-animation-delay: 0.33217203s;
+          animation-delay: 0.33217203s;
+}
+.stars-cluster-2 .star-29 {
+  width: 3px;
+  height: 3px;
+  opacity: 0.48046208;
+  top: 62.29383461%;
+  left: 70.79282939%;
+  -webkit-animation-duration: 1.25498613s;
+          animation-duration: 1.25498613s;
+  -webkit-animation-delay: 0.3370631s;
+          animation-delay: 0.3370631s;
+}
+.stars-cluster-2 .star-30 {
+  width: 2px;
+  height: 2px;
+  opacity: 0.51735572;
+  top: 85.2172873%;
+  left: 59.43458027%;
+  -webkit-animation-duration: 1.97457673s;
+          animation-duration: 1.97457673s;
+  -webkit-animation-delay: 0.56567306s;
+          animation-delay: 0.56567306s;
+}
+.stars-cluster-2 .star-31 {
+  width: 3px;
+  height: 3px;
+  opacity: 0.68637258;
+  top: 31.53539167%;
+  left: 21.95149118%;
+  -webkit-animation-duration: 0.66518338s;
+          animation-duration: 0.66518338s;
+  -webkit-animation-delay: 0.55253829s;
+          animation-delay: 0.55253829s;
+}
+.stars-cluster-2 .star-32 {
+  width: 3px;
+  height: 3px;
+  opacity: 0.75679586;
+  top: 87.4416484%;
+  left: 60.34874592%;
+  -webkit-animation-duration: 2.34493536s;
+          animation-duration: 2.34493536s;
+  -webkit-animation-delay: 0.93213145s;
+          animation-delay: 0.93213145s;
+}
+.stars-cluster-2 .star-33 {
+  width: 2px;
+  height: 2px;
+  opacity: 0.60057724;
+  top: 1.42753152%;
+  left: 25.91207302%;
+  -webkit-animation-duration: 2.3477872s;
+          animation-duration: 2.3477872s;
+  -webkit-animation-delay: 0.76669814s;
+          animation-delay: 0.76669814s;
+}
+.stars-cluster-2 .star-34 {
+  width: 2px;
+  height: 2px;
+  opacity: 0.21355269;
+  top: 71.99684258%;
+  left: 83.393061%;
+  -webkit-animation-duration: 1.91214716s;
+          animation-duration: 1.91214716s;
+  -webkit-animation-delay: 0.36797379s;
+          animation-delay: 0.36797379s;
+}
+.stars-cluster-2 .star-35 {
+  width: 4px;
+  height: 4px;
+  opacity: 0.55366877;
+  top: 43.0121043%;
+  left: 63.43666154%;
+  -webkit-animation-duration: 1.47325332s;
+          animation-duration: 1.47325332s;
+  -webkit-animation-delay: 0.51764066s;
+          animation-delay: 0.51764066s;
+}
+.stars-cluster-2 .star-36 {
+  width: 3px;
+  height: 3px;
+  opacity: 0.79068183;
+  top: 57.38361934%;
+  left: 22.42948581%;
+  -webkit-animation-duration: 0.88664312s;
+          animation-duration: 0.88664312s;
+  -webkit-animation-delay: 0.42094293s;
+          animation-delay: 0.42094293s;
+}
+.stars-cluster-2 .star-37 {
+  width: 2px;
+  height: 2px;
+  opacity: 0.34311582;
+  top: 2.80826841%;
+  left: 82.35927371%;
+  -webkit-animation-duration: 0.8352923s;
+          animation-duration: 0.8352923s;
+  -webkit-animation-delay: 0.53663861s;
+          animation-delay: 0.53663861s;
+}
+.stars-cluster-2 .star-38 {
+  width: 4px;
+  height: 4px;
+  opacity: 0.5466146;
+  top: 11.34336183%;
+  left: 51.93646897%;
+  -webkit-animation-duration: 1.56057497s;
+          animation-duration: 1.56057497s;
+  -webkit-animation-delay: 0.75832098s;
+          animation-delay: 0.75832098s;
+}
+.stars-cluster-2 .star-39 {
+  width: 3px;
+  height: 3px;
+  opacity: 0.37929043;
+  top: 77.38572061%;
+  left: 39.70625508%;
+  -webkit-animation-duration: 0.6036657s;
+          animation-duration: 0.6036657s;
+  -webkit-animation-delay: 0.49318065s;
+          animation-delay: 0.49318065s;
+}
+.stars-cluster-2 .star-40 {
+  width: 3px;
+  height: 3px;
+  opacity: 0.30250302;
+  top: 73.44262111%;
+  left: 40.93663252%;
+  -webkit-animation-duration: 1.9062959s;
+          animation-duration: 1.9062959s;
+  -webkit-animation-delay: 0.48216151s;
+          animation-delay: 0.48216151s;
+}
+.stars-cluster-3 .star-1 {
+  width: 3px;
+  height: 3px;
+  opacity: 0.42344994;
+  top: 43.93210239%;
+  left: 84.405718%;
+  -webkit-animation-duration: 2.31255904s;
+          animation-duration: 2.31255904s;
+  -webkit-animation-delay: 0.60940587s;
+          animation-delay: 0.60940587s;
+}
+.stars-cluster-3 .star-2 {
+  width: 2px;
+  height: 2px;
+  opacity: 0.60560769;
+  top: 50.09981643%;
+  left: 54.53011713%;
+  -webkit-animation-duration: 0.52307684s;
+          animation-duration: 0.52307684s;
+  -webkit-animation-delay: 0.1607378s;
+          animation-delay: 0.1607378s;
+}
+.stars-cluster-3 .star-3 {
+  width: 5px;
+  height: 5px;
+  opacity: 0.69357101;
+  top: 54.85465112%;
+  left: 47.10214138%;
+  -webkit-animation-duration: 2.14181062s;
+          animation-duration: 2.14181062s;
+  -webkit-animation-delay: 0.34654666s;
+          animation-delay: 0.34654666s;
+}
+.stars-cluster-3 .star-4 {
+  width: 2px;
+  height: 2px;
+  opacity: 0.77457674;
+  top: 25.95042349%;
+  left: 27.71990409%;
+  -webkit-animation-duration: 0.41233682s;
+          animation-duration: 0.41233682s;
+  -webkit-animation-delay: 0.58271794s;
+          animation-delay: 0.58271794s;
+}
+.stars-cluster-3 .star-5 {
+  width: 2px;
+  height: 2px;
+  opacity: 0.76278265;
+  top: 88.75147239%;
+  left: 32.50260127%;
+  -webkit-animation-duration: 1.87281508s;
+          animation-duration: 1.87281508s;
+  -webkit-animation-delay: 0.62976708s;
+          animation-delay: 0.62976708s;
+}
+.stars-cluster-3 .star-6 {
+  width: 4px;
+  height: 4px;
+  opacity: 0.698832;
+  top: 17.53514914%;
+  left: 77.85174302%;
+  -webkit-animation-duration: 0.65024039s;
+          animation-duration: 0.65024039s;
+  -webkit-animation-delay: 0.52711167s;
+          animation-delay: 0.52711167s;
+}
+.stars-cluster-3 .star-7 {
+  width: 2px;
+  height: 2px;
+  opacity: 0.47877214;
+  top: 32.70809841%;
+  left: 39.91630389%;
+  -webkit-animation-duration: 1.91585658s;
+          animation-duration: 1.91585658s;
+  -webkit-animation-delay: 0.05409641s;
+          animation-delay: 0.05409641s;
+}
+.stars-cluster-3 .star-8 {
+  width: 2px;
+  height: 2px;
+  opacity: 0.6323791;
+  top: 47.47106321%;
+  left: 53.36510404%;
+  -webkit-animation-duration: 1.30204846s;
+          animation-duration: 1.30204846s;
+  -webkit-animation-delay: 0.95603091s;
+          animation-delay: 0.95603091s;
+}
+.stars-cluster-3 .star-9 {
+  width: 3px;
+  height: 3px;
+  opacity: 0.70682519;
+  top: 83.47542239%;
+  left: 98.67631872%;
+  -webkit-animation-duration: 1.51493092s;
+          animation-duration: 1.51493092s;
+  -webkit-animation-delay: 0.90751637s;
+          animation-delay: 0.90751637s;
+}
+.stars-cluster-3 .star-10 {
+  width: 2px;
+  height: 2px;
+  opacity: 0.68104084;
+  top: 15.87243869%;
+  left: 92.19063278%;
+  -webkit-animation-duration: 0.66883541s;
+          animation-duration: 0.66883541s;
+  -webkit-animation-delay: 0.16171146s;
+          animation-delay: 0.16171146s;
+}
+.stars-cluster-3 .star-11 {
+  width: 3px;
+  height: 3px;
+  opacity: 0.79488965;
+  top: 52.98704901%;
+  left: 51.65482776%;
+  -webkit-animation-duration: 1.09451789s;
+          animation-duration: 1.09451789s;
+  -webkit-animation-delay: 0.18226368s;
+          animation-delay: 0.18226368s;
+}
+.stars-cluster-3 .star-12 {
+  width: 2px;
+  height: 2px;
+  opacity: 0.29994284;
+  top: 97.92925834%;
+  left: 95.65952611%;
+  -webkit-animation-duration: 2.10190276s;
+          animation-duration: 2.10190276s;
+  -webkit-animation-delay: 0.47742841s;
+          animation-delay: 0.47742841s;
+}
+.stars-cluster-3 .star-13 {
+  width: 4px;
+  height: 4px;
+  opacity: 0.20065866;
+  top: 51.9504586%;
+  left: 33.71961506%;
+  -webkit-animation-duration: 0.53108694s;
+          animation-duration: 0.53108694s;
+  -webkit-animation-delay: 0.22425031s;
+          animation-delay: 0.22425031s;
+}
+.stars-cluster-3 .star-14 {
+  width: 5px;
+  height: 5px;
+  opacity: 0.31613135;
+  top: 43.30272032%;
+  left: 5.81612086%;
+  -webkit-animation-duration: 0.86108931s;
+          animation-duration: 0.86108931s;
+  -webkit-animation-delay: 0.78992223s;
+          animation-delay: 0.78992223s;
+}
+.stars-cluster-3 .star-15 {
+  width: 5px;
+  height: 5px;
+  opacity: 0.59028196;
+  top: 53.59796209%;
+  left: 22.98000574%;
+  -webkit-animation-duration: 1.20037744s;
+          animation-duration: 1.20037744s;
+  -webkit-animation-delay: 0.38784159s;
+          animation-delay: 0.38784159s;
+}
+/**
+ * ----------------------------------------
+ * animation pulsate
+ * ---------------------------------------
+*/
+@-webkit-keyframes pulsate {
+  0% {
+    -webkit-transform: scale(0.85);
+            transform: scale(0.85);
+    opacity: .2;
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+@keyframes pulsate {
+  0% {
+    -webkit-transform: scale(0.85);
+            transform: scale(0.85);
+    opacity: .2;
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+/**
+ * ----------------------------------------
+ * animation shooting-star
+ * ---------------------------------------
+*/
+@-webkit-keyframes shooting-star {
+  0% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    -webkit-transform: translate(0, 0);
+            transform: translate(0, 0);
+    opacity: 1;
+  }
+  20%,
+  100% {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+    -webkit-transform: translate(400px, 200px);
+            transform: translate(400px, 200px);
+    opacity: 0;
+  }
+}
+@keyframes shooting-star {
+  0% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    -webkit-transform: translate(0, 0);
+            transform: translate(0, 0);
+    opacity: 1;
+  }
+  20%,
+  100% {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+    -webkit-transform: translate(400px, 200px);
+            transform: translate(400px, 200px);
+    opacity: 0;
+  }
+}
+/**
+ * ----------------------------------------
+ * animation shooting-star-2
+ * ---------------------------------------
+*/
+@-webkit-keyframes shooting-star-2 {
+  0% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    -webkit-transform: translate(0, 0);
+            transform: translate(0, 0);
+    opacity: 1;
+  }
+  10%,
+  100% {
+    -webkit-transform: scale(0.7);
+            transform: scale(0.7);
+    -webkit-transform: translate(600px, 150px);
+            transform: translate(600px, 150px);
+    opacity: .3;
+  }
+}
+@keyframes shooting-star-2 {
+  0% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    -webkit-transform: translate(0, 0);
+            transform: translate(0, 0);
+    opacity: 1;
+  }
+  10%,
+  100% {
+    -webkit-transform: scale(0.7);
+            transform: scale(0.7);
+    -webkit-transform: translate(600px, 150px);
+            transform: translate(600px, 150px);
+    opacity: .3;
+  }
+}

@@ -1,0 +1,336 @@
+body,ol,ul,h1,h2,h3,h4,h5,h6,p,th,td,dl,dd,form,fieldset,legend,input,textarea,select{margin:0;padding:0} body{font:12px"宋体","Arial Narrow",HELVETICA;background:#fff;-webkit-text-size-adjust:100%;} a{color:#2d374b;text-decoration:none} a:hover{color:#cd0200;text-decoration:underline} em{font-style:normal} li{list-style:none} img{border:0;vertical-align:middle} table{border-collapse:collapse;border-spacing:0} p{word-wrap:break-word}
+  width: 100%;
+  height: 100vh;
+}
+.fcmusic .items-group {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+.fcmusic .items-group .item {
+  top: 0;
+  left: 0;
+  bottom: 0;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  overflow: hidden;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  visibility: hidden;
+  position: relative;
+  padding: 75px 20px;
+  position: absolute;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  box-sizing: border-box;
+  opacity: 1;
+  visibility: visible;
+}
+.fcmusic .items-group .item:hover .bg {
+  opacity: 0.2;
+}
+.fcmusic .items-group .item:hover .block {
+  box-shadow: 0px 0px 50px #333;
+}
+.fcmusic .items-group .item .bg {
+  top: 0;
+  left: 0;
+  opacity: 1;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  position: absolute;
+  -webkit-transform: scale(1.03);
+          transform: scale(1.03);
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed; 
+}
+.fcmusic .items-group .item .blur {
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  -webkit-filter: blur(5px);
+          filter: blur(5px);
+  position: absolute;
+  -webkit-transform: scale(1.03);
+          transform: scale(1.03);
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+
+}
+.fcmusic .items-group .item .block {
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+  color: #ffffff;
+  -webkit-transition: box-shadow 0.5s;
+  transition: box-shadow 0.5s;
+  max-width: 450px;
+  overflow: hidden;
+  height: 480px;
+  border-radius: 10px;
+  -webkit-transform: scale(1.03);
+          transform: scale(1.03);
+  box-sizing: border-box;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  box-shadow: none;
+  z-index:1000;
+}
+.fcmusic .items-group .item .block .circleLight {
+  top: 0;
+  left: 0;
+  opacity: 0;
+  content: '';
+  width: 100%;
+  height: 100%;
+  display: block;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  position: absolute;
+  border-radius: 10px;
+  background: -webkit-radial-gradient(80px 40px, circle, #ffffff, rgba(0, 0, 0, 0));
+  background: radial-gradient(circle at 80px 40px, #ffffff, rgba(0, 0, 0, 0));
+}
+
+.fcmusic .items-group .item .block .text {
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  text-align: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-position: center;
+  background-attachment: fixed;
+}
+.songtext{
+  line-height:25px;
+  height:25px	
+}
+
+.songtext .songname{
+  font-weight: bold;
+  font-family:"Microsoft Yahei";
+  background: linear-gradient(to right, #88ada6, #2e4e7e);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+/*
+.LycText{
+  font-size:12px;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+*/
+.fcmusic .items-group .item .block span {
+  font-family: sans-serif;
+  margin-bottom: 35px;
+  z-index:999;
+  color:#FFF;
+}
+
+.fcmusic .items-group .item .block p {
+  font-family: sans-serif;
+  font-size: 16px;
+  background: linear-gradient(to right,#DDD,#888);
+  -webkit-background-clip: text;
+  color: transparent;  
+}
+
+.fcmusic .items-group .item .block {
+  box-shadow: 0px 0px 70px #111;
+}
+
+.fcmusic .items-group .item .block .circleLight {
+  opacity: 0.4;
+}
+
+.round_icon{
+  width: 110px;
+  height: 110px;
+  display: flex;
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden; 
+}
+
+.play-tx {
+  animation: ripple 1.2s linear infinite;
+  border-radius: 50%;
+}
+
+.play-tx2 {
+  animation: icon_rotate 20s linear infinite,ripple 1.2s linear infinite;
+  border-radius: 50%;
+}
+
+.icon{
+  margin:60px auto;
+  padding-bottom:70px;
+  text-align:center;
+  opacity: 1;
+  z-index: 999;
+}
+.play-left{
+  float:left;
+  display: -webkit-box;
+  font-size:30px;
+  background: linear-gradient(to right,#DDD,#888);
+  -webkit-background-clip: text;
+  color: transparent; 
+  
+}
+.play-right{
+  float:right;
+  display: -webkit-box;
+  font-size:30px;
+  background: linear-gradient(to right,#DDD,#888);
+  -webkit-background-clip: text;
+  color: transparent; 
+  
+}
+.play{
+  font-size:75px;
+  margin:-21px 0 0 0;
+  background: linear-gradient(to right,#DDD,#888);
+  -webkit-background-clip: text;
+  color: transparent; 
+
+}
+
+/** 进度条css */
+.slice {
+  width:0;
+  height:0;
+  border-radius:20px;
+  border-width:20px;
+  border-style:solid;
+  border-color:red transparent transparent transparent;
+  overflow:hidden;
+  cursor:pointer;
+}
+
+@keyframes ripple {
+  0% {
+    box-shadow: 0 0 0 0 rgba(248,248,255,0.1), 0 0 0 20px rgba(248,248,255,0.1), 0 0 0 40px rgba(248,248,255,0.1), 0 0 0 60px rgba(248,248,255,0.1);
+  }
+  100% {
+    box-shadow: 0 0 0 20px rgba(230,230,250,0.1), 0 0 0 40px rgba(230,230,250,0.1), 0 0 0 60px rgba(230,230,250,0.1), 0 0 0 70px rgba(230,230,250,0);
+  }
+}
+
+@keyframes icon_rotate {
+  0% {
+	-webkit-transform: rotate(0deg);
+  }
+  100% {
+	-webkit-transform: rotate(360deg);
+  }
+}
+
+.scale_panel{
+	font-size:10px;
+	max-width:450px;
+	position:absolute; 
+	line-height:12px; 
+	top:0;
+    left: 0;
+    right: 0;	
+}
+.scale_panel .r{
+	float:right;
+}
+.scale span{
+	width:5px;
+	height:12px; 
+	position:absolute; 
+	left:0px;
+	right:0px;
+	top:-5px;
+	cursor:pointer;
+}
+.scale{
+    background-repeat: repeat-x; 
+    background-position: 0 100%;
+    background-color: #000; 
+    border-left: 1px #000 solid;
+    height: 2px; 
+	left:0px;
+	right:0px;	
+    position: relative;
+    font-size: 0px; 
+    border-radius: 2px;
+ }
+.scale div{ 
+    background-repeat: repeat-x; 
+	background-color: #F1F1F1; 
+	width: 0px; position: absolute; 
+	height: 2px; 
+	left:3px;
+    right:3px;	
+	bottom:0; 
+	
+}
+li{
+	font-size:12px;
+	line-height:20px;
+	position:relative; 
+	height:20px; 
+	list-style:none;
+}
+
+input[type=range]{ 
+    outline: none; 
+     -webkit-appearance: none;/*清除系统默认样式*/  
+     width:100% !important;  
+     background: -webkit-linear-gradient(rgba(250,240,230,0.2), rgba(250,240,230,0.2)) no-repeat, rgba(0,0,0,0.2);
+     background-size: 0% 100%;/*设置左右宽度比例*/  
+     height: 2px;/*横条的高度*/ 
+    -webkit-appearance: none;/*清除系统默认样式*/
+    z-index:1000;      
+} 
+
+input[type=range]::-webkit-slider-thumb {  
+   -webkit-appearance: none;/*清除系统默认样式*/  
+    height:13px;/*拖动块高度*/  
+    width: 13px;/*拖动块宽度*/  
+    background: rgba(250,240,230,0.5);/*拖动块背景*/  
+    border-radius: 50%; /*外观设置为圆形*/  
+}
+.search{
+    width: 100%;
+    height: 50px;
+    color: #4d5a5e;
+    background: white;
+    border: 1px solid #cfdfe3;
+    border-bottom-color: #d2e2e7;
+    border-radius: 2px;
+    -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.05), 0 1px rgba(255, 255, 255, 0.2);
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.05), 0 1px rgba(255, 255, 255, 0.2);
+}

@@ -1,37 +1,12 @@
-# Fmusic
+# Fmusic-移动手势音乐播放器
 
 #### 项目介绍
 一款移动端的手势音乐播放器，支持单曲循环，歌词显示，歌曲搜索，音量控制，列表循环等功能
-
-#### 软件架构
-软件架构说明
-
-
-#### 安装教程
-
-1. xxxx
-2. xxxx
-3. xxxx
-
-#### 使用说明
-
-1. xxxx
-2. xxxx
-3. xxxx
-
-#### 参与贡献
-
-1. Fork 本项目
-2. 新建 Feat_xxx 分支
-3. 提交代码
-4. 新建 Pull Request
-
-
-#### 码云特技
-
-1. 使用 Readme\_XXX.md 来支持不同的语言，例如 Readme\_en.md, Readme\_zh.md
-2. 码云官方博客 [blog.gitee.com](https://blog.gitee.com)
-3. 你可以 [https://gitee.com/explore](https://gitee.com/explore) 这个地址来了解码云上的优秀开源项目
-4. [GVP](https://gitee.com/gvp) 全称是码云最有价值开源项目，是码云综合评定出的优秀开源项目
-5. 码云官方提供的使用手册 [https://gitee.com/help](https://gitee.com/help)
-6. 码云封面人物是一档用来展示码云会员风采的栏目 [https://gitee.com/gitee-stars/](https://gitee.com/gitee-stars/)
+采用Sition.js打造，项目地址：https://gitee.com/lovefc/Sition
+### 项目截图
+![](https://www.showdoc.cc/server/api/common/visitfile/sign/9cacc505f4087b0609debd3a0da26ba1?showdoc=.jpg)
+![](https://www.showdoc.cc/server/api/common/visitfile/sign/40dd3595afe3b64eb585a411ecbc8506?showdoc=.jpg)
+### 作者备注
+- 如果发现问题，欢迎向我反馈，毕竟一个人测试有限，会有注意不到的地方。
+- 作者QQ：1102952084
+- 作者博客：lovefc.cn
