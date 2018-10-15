@@ -4,6 +4,7 @@
  * time:2018/10/04 14:07
  * 日志 *************************************
  * 修复了长按和滑动的冲突 -- 2018/10/14 15:02
+ * 修复了执行中的一个小问题 -- 2018/10/15 08:33
  * 日志 *************************************
  */
 var objsTime = 0; 
@@ -12,7 +13,7 @@ function Sition(dom,nowAction,callBack,debug) {
     var obj = new Object();
     obj.startX = 0;
     obj.startY = 0;
-    obj.sValue = 20;
+    obj.sValue = 18;
     obj._sValue = obj.sValue*(-1);	
 	obj.dom = dom;
 	obj.domObjcet = '';
@@ -38,7 +39,7 @@ function Sition(dom,nowAction,callBack,debug) {
 	}
 	obj.checkY = function(y){
 	   y = Math.abs(y - obj.startY); 
-	   var sValue = (obj.sValue >= 20)?20:obj.sValue; 	   
+	   var sValue = (obj.sValue >= 18)?18:obj.sValue; 	   
 	   if(sValue >= y){
 	      return true;
 	   }
@@ -47,7 +48,7 @@ function Sition(dom,nowAction,callBack,debug) {
 	
 	obj.checkX = function(x){
 	   x = Math.abs(x - obj.startX);
-	   var sValue = (obj.sValue >= 20)?20:obj.sValue;  
+	   var sValue = (obj.sValue >= 18)?18:obj.sValue;  
 	   if(sValue >= x){
 	      return true;
 	   }
@@ -114,11 +115,7 @@ function Sition(dom,nowAction,callBack,debug) {
 				obj.debugInfo(obj.action);
 				diffeValue['start'] = obj.startX;	
 				diffeValue['end'] = x;
-				obj.diffeValue = diffeValue;
-	            if(obj.action+'Ing' === obj.nowAction){
-		            obj.runFun(obj.diffeValue);
-					obj.debugInfo(obj.action+'Ing');
-                }					
+				obj.diffeValue = diffeValue;				
             }	
             if (yValue > obj.sValue && obj.checkX(x)) {		
 			    action = 'down';
@@ -142,12 +139,13 @@ function Sition(dom,nowAction,callBack,debug) {
 				obj.debugInfo(obj.action);
 				diffeValue['start'] = obj.startY;	
 				diffeValue['end'] = y;
-				obj.diffeValue = diffeValue;
-	            if(obj.action+'Ing' === obj.nowAction){
-		            obj.runFun(obj.diffeValue);
-					obj.debugInfo(obj.action+'Ing');
-                }			
+				obj.diffeValue = diffeValue;		
             }
+	        if(obj.action+'Ing' === obj.nowAction){
+		       obj.runFun(obj.diffeValue);
+			   obj.debugInfo(obj.action+'Ing');
+			   return false;
+            }			
 			obj.sTime = 0;
         }catch(e){
             console.log(e.message);
