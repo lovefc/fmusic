@@ -11,7 +11,7 @@
 下载地址：https://gitee.com/lovefc/fmusic
 
 ### 项目截图
-![](https://www.showdoc.cc/server/api/common/visitfile/sign/762f2aaf3ae51494f85f7ee9c34a6bdb?showdoc=.jpg)
+![](https://uquhu.cn/fmusic.png)
 ### 作者备注
 - 如果发现问题，欢迎向我反馈，毕竟一个人测试有限，会有注意不到的地方。
 - 作者QQ：1102952084
