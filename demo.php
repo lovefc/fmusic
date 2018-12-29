@@ -7,26 +7,25 @@ $musicLIST = save($playlist_id);
 ?>
 <!DOCTYPE html>
 <html>
-  
   <head>
     <meta charset="utf-8">
     <title>移动手势音乐播放</title>
-	<meta name="keywords" content="封尘,lovefc,fc,个人原创,手势操作,移动播放器"/>	
-    <meta name="description" content="封尘,lovefc,fc,个人原创,手势操作,移动播放器"/>
+	<meta name="keywords" content="封尘,lovefc,fc,个人原创,手势操作,移动播放器,lovefc.cn"/>	
+    <meta name="description" content="封尘,lovefc,fc,个人原创,手势操作,移动播放器,lovefc.cn"/>
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link rel="icon" href="favicon.ico" type="image/x-icon" />
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
     <!-- 字体文件 -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
+    <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <!-- 背景css -->
     <link href="css/bg.css?v=0.0.1" rel="stylesheet">
     <!-- 播放器css -->
     <link href="css/fcmusic.css?v=0.1.5" rel="stylesheet">
     <!-- 仿ios弹窗插件css -->
     <link href="alert/alert.css" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/parallax.js/1.5.0/parallax.min.js"></script>-->
     <!-- 仿ios弹窗插件 -->
     <script src="alert/alert.js" type="text/javascript" ></script>
@@ -173,17 +172,14 @@ $musicLIST = save($playlist_id);
         </div>
       </div>
     </div>
-    <audio id="musicfc" style="width:0;height:0;display:none;">
-      <source src="http://m10.music.126.net/20181015011529/3885e2f93373ca79b3e92238a6a74182/ymusic/b95a/0f13/4f0a/0259b99b99fb5cd35099670bbbd535a3.mp3" crossOrigin="anonymous" type="audio/mpeg">
-	</audio>
 	<!-- 播放器部分 -->
 	
 	<!-- 离子背景加载js -->
     <script src="js/loader.js"></script>
-    <script>
-	    var musicJson =<?=$musicLIST?>	</script>
-    <script src="js/music.js?v=1.0" type="text/javascript"></script>
-	<script type="text/javascript" src="//js.users.51.la/19692655.js"></script>
+    <script> var musicJson = <?php echo $musicLIST;?> </script>
+    <script src="js/music.js?v=1.1" type="text/javascript"></script>
+    <script src="js/play.js?v=1.1" type="text/javascript"></script>
+	<script type="text/javascript" src="https://js.users.51.la/19692655.js"></script>
   </body>
 
 </html>

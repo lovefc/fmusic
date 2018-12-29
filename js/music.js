@@ -1,16 +1,206 @@
-var playStatus = 0,
-musicfc = document.getElementsByTagName("audio")[0],
-volume = 1,
-musicLoop = '',
-arrMusic = new Array(),
-nowPlayNum = 0;
-onlyLoop = 0,
-arrMusicNum = 0,
-allTime = 0,
-currentnum = 0,
-currentTime = 0,
-lycArray = new Array();
+/* 
+ * fmusic音乐播放器1.1 
+ * author：lovefc
+ * blog：http://lovefc.cn
+*/
 
+// 先来生成一个audio对象
+var musicfc = document.createElement('audio');
+    musicfc.controls = false;
+    musicfc.src = '';
+    document.body.appendChild(musicfc);
+	
+// 判断一下音乐播放状态
+var playStatus = 0,
+    
+    //当前音乐播放总时长，记录一下总时长
+    allTime = 0,
+    
+    // 当前音乐播放时长，记录一下当前进度的时长
+    currentTime = 0,
+
+    // 存储一下播放列表
+    arrMusic = new Array(),
+
+    // 当前播放计数, 默认从零开始
+    nowPlayNum = 0,
+
+    // 播放列表数量计数
+    arrMusicNum = 0,
+	
+	// 歌词列表
+	lycArray = new Array(),
+    
+	// 是否只播放一次
+    onlyLoop = 0,
+	
+	// 初始音量
+	volume = 1, 
+	
+	// 歌词行数
+	currentnum = 0;
+
+// 重新赋予音乐属性
+function attrMusic(arr) {
+	// 检测是不是有url这个值,没有就滚蛋
+	if (arr && arr.hasOwnProperty('url')) {
+		musicfc.src = arr['url']; // 改变当前的music的值
+		$('#round_icon').attr("src", arr['pic']); // 改变封面的图片
+		$('.songname').html(arr['title']); // 改变标题
+		allTime = musicfc.duration; // 重新获取总时长
+		currentTime = musicfc.currentTime; // 重新获取当前进度时长
+		createLrc(arr['lyc']);// 解析歌词
+        currentnum = 0;
+	}
+}
+
+// JSON 转成数组
+function jsonToArray(json) {
+	// 重复调用该函数的时候，清空数组
+	arrMusic = new Array(); 
+
+	// 如果传入的json为空的话，直接返回false
+	if (json == null && json.toString() == '') {
+		console.log('json error');
+		return false;
+	}
+
+	// 很好，现在来循环这个json，把它变成一个数组，这样比较好操作
+	for (var item in json) {
+		arrMusic[item] = json[item];
+	}
+
+	// 调用函数，重新开始赋值
+	attrMusic(arrMusic[nowPlayNum]);
+
+    // 记录一下一共有几首歌
+	arrMusicNum = arrMusic.length; 
+}
+
+
+// 将json转换成数组并且将当前的元素值赋值到audio的元素中
+jsonToArray(musicJson);
+
+
+// 播放音乐
+function autoPlay() {
+	playStatus = 1; 
+
+	musicfc.play(); // 播放音乐
+
+	// 这里是改图标
+    $(".play").attr("class", 'fa fa-stop-circle play');
+    $('#round_icon').addClass('play-tx2');
+}
+
+// 暂停
+function stopPlay() {
+	playStatus = 0;
+
+	musicfc.pause(); // 暂停音乐
+
+	// 这里同样是改图标
+    $(".play").attr("class", 'fa fa-play-circle play');
+    $('#round_icon').removeClass('play-tx2');
+}
+
+// 进度判断
+// ontimeupdate 在当前播放位置改变时执行函数
+// 参考资料：http://www.runoob.com/jsref/event-ontimeupdate.html
+musicfc.ontimeupdate = function() {
+	// 判断有木有歌词
+    if (lycArray.length > 0) {
+		
+		// 读取初始歌词
+        if (currentnum == lycArray.length - 1 && musicfc.currentTime.toFixed(3) >= parseFloat(lycArray[currentnum].t)) {
+            $('#lyctext').html(lycArray[currentnum].c);
+        }
+		
+		// 这里是开始循环读取
+        if (parseInt(lycArray[currentnum].t) <= parseInt(musicfc.currentTime + 0.1) && parseInt(musicfc.currentTime + 0.1) <= parseInt(lycArray[currentnum + 1].t)) {
+            if (musicfc.currentTime > 0) {
+                $('#lyctext').html(lycArray[currentnum].c);
+            }
+            currentnum++; // 这里是歌词的行数
+        }
+    }	
+	allTime = musicfc.duration; // 总时长
+	// 如果没有总时长，就说明这个音乐文件不存在，那么就不执行
+	if(allTime){
+		// 正在播放的时长,这里不能读取全局变量里面的，因为这个值总是在更新，所以要取最新的
+		currentTime = musicfc.currentTime;
+		// 计算一下当前的报进度，当前时长/总时长
+		var PlayProgress = Math.round(currentTime / allTime * 100);
+		// 改变当前进度条的值，用于实时监听当前的播放进度
+		$('#PlayProgress').val(PlayProgress);
+		$('.circleLight').css('background-color', 'hsla(' + Math.ceil(360 * Math.abs(currentTime / allTime)) + ',80%,50%,0.5)');
+		$('#PlayProgress').css("background-size", PlayProgress + "% 100%");
+	}
+};
+
+// 切换上一首音乐
+function prevMusic() {
+	// 先把值减去1
+	nowPlayNum--;
+
+	// 判断值是否小于0.如果小于0，就说明列表已全部循环完毕，那么重新开始吧
+	// 如果小于0,就把当前的播放数组数量减去1，因为数组是从零开始的
+	if (nowPlayNum < 0) {
+		nowPlayNum = arrMusicNum - 1;
+	}
+	// 很好，那么开始赋值吧
+	attrMusic(arrMusic[nowPlayNum]);
+}
+
+// 切换下一首音乐
+function nextMusic() {
+    // 加 加 加 
+	nowPlayNum++;
+	
+	// 判断当前播放的列表数量是不是大于了总列表的数量，大于，就重零开始吧
+	if (nowPlayNum > arrMusicNum) {
+		nowPlayNum = 0;
+	}
+
+	// 赋值
+	attrMusic(arrMusic[nowPlayNum]);
+}
+
+// 监听播放结束，然后来搞点事情
+musicfc.addEventListener('ended',
+function() {
+    // 如果此时状态还是在播放，那么就切换到下一首
+	if (playStatus == 1) {
+	    nextMusic(); // 把数组移到下一个，赋值元素
+	    autoPlay(); // 重新开始播放，初始化属性值
+	} else {
+		// 这里就是停止了
+		playStatus = 0;
+		musicfc.pause();
+        $(".play").attr("class", 'fa fa-play-circle play');
+        $('#round_icon').removeClass('play-tx2');
+	}
+},
+false);
+
+// 控制播放进度,val是选择的进度
+function PlayProgress(val,callback) {
+	if(allTime && val){
+		// 这里进行一下数值处理
+	    musicfc.currentTime = Math.round(allTime * val / 100); 
+        $('#PlayProgress').css("background-size", val + "% 100%");
+	}
+}
+
+// 控制播放速度
+function PlayRate(val) {
+	// 这里是加快，最大值为2
+    val = val/100+1;
+    musicfc.playbackRate = val;
+}
+
+
+// 解析歌词
 function createLrc(lycText) {
     lycArray = new Array();
     var medis = lycText;
@@ -19,32 +209,18 @@ function createLrc(lycText) {
     }
     var lycs = new Array();
     var medises = medis.split("\n");
-    $.each(medises,
-    function(i, item) {
+	// 循环读取值
+	for ( var i = 0; i <medises.length; i++){
+        var item = medises[i];	
         var t = item.substring(item.indexOf("[") + 1, item.indexOf("]"));
         lycArray.push({
             t: (t.split(":")[0] * 60 + parseFloat(t.split(":")[1])).toFixed(3),
             c: item.substring(item.indexOf("]") + 1, item.length)
-        });
-    });
-
+        })	
+	}
 }
 
-function jsonToArray(json) {
-    arrMusic = new Array();
-    if (json == null && json.toString() == '') {
-        console.log('json error');
-        return false;
-    }
-    for (var item in json) {
-        arrMusic[item] = json[item];
-    }
-    attrMusic(arrMusic[nowPlayNum]);
-    arrMusicNum = arrMusic.length;
-}
-
-jsonToArray(musicJson);
-
+// 这里来监听实时歌曲进度
 setInterval(function() {
     for (i = 0; i < lycArray.length; i++) {
         if (parseInt(lycArray[i].t) <= parseInt(currentTime + 0.1) && parseInt(lycArray[i + 1].t) >= parseInt(currentTime + 0.1)) {
@@ -54,117 +230,7 @@ setInterval(function() {
 },
 1000);
 
-musicfc.ontimeupdate = function() {
-    if (lycArray.length > 0) {
-        if (currentnum == lycArray.length - 1 && musicfc.currentTime.toFixed(3) >= parseFloat(lycArray[currentnum].t)) {
-            $('#lyctext').html(lycArray[currentnum].c);
-        }
-        if (parseInt(lycArray[currentnum].t) <= parseInt(musicfc.currentTime + 0.1) && parseInt(musicfc.currentTime + 0.1) <= parseInt(lycArray[currentnum + 1].t)) {
-            if (musicfc.currentTime > 0) {
-                $('#lyctext').html(lycArray[currentnum].c);
-            }
-            currentnum++;
-        }
-    }
-    allTime = musicfc.duration;
-    if (allTime) {
-        currentTime = musicfc.currentTime;
-        $('.circleLight').css('background-color', 'hsla(' + Math.ceil(360 * Math.abs(currentTime / allTime)) + ',80%,50%,0.5)');
-        var PlayProgress = Math.round(currentTime / allTime * 10000) / 100;
-        $('#PlayProgress').val(PlayProgress);
-        $('#PlayProgress').css("background-size", PlayProgress + "% 100%");
-    }
-};
-
-function autoPlay() {
-    playStatus = 1;
-    musicfc.play();
-    $(".play").attr("class", 'fa fa-stop-circle play');
-    $('#round_icon').addClass('play-tx2');
-}
-
-function stopPlay() {
-    playStatus = 0;
-    musicfc.pause();
-    $(".play").attr("class", 'fa fa-play-circle play');
-    $('#round_icon').removeClass('play-tx2');
-}
-
-$('.play').click(function() {
-    if (playStatus == 0) {
-        autoPlay();
-    } else {
-        stopPlay();
-    }
-});
-
-$('.play-left').click(function() {
-    prevMusic();
-    if (playStatus == 1) {
-        autoPlay();
-    }
-});
-
-$('.play-right').click(function() {
-    nextMusic();
-    if (playStatus == 1) {
-        autoPlay();
-    }
-});
-
-function attrMusic(arr) {
-    if (arr && arr.hasOwnProperty('url')) {
-        musicfc.src = arr['url'];
-        $('#round_icon').attr("src", arr['pic']);
-        $('.songname').html(arr['title']);
-        allTime = musicfc.duration;
-        currentTime = musicfc.currentTime;
-        createLrc(arr['lyc']);
-        currentnum = 0;
-    }
-}
-
-function prevMusic() {
-    nowPlayNum--;
-    if (nowPlayNum < 0) {
-        nowPlayNum = arrMusic.length - 1;
-    }
-    attrMusic(arrMusic[nowPlayNum]);
-}
-
-function nextMusic() {
-    nowPlayNum++;
-    if (nowPlayNum > arrMusicNum) {
-        nowPlayNum = 0;
-    }
-    attrMusic(arrMusic[nowPlayNum]);
-}
-
-musicfc.addEventListener('ended',
-function() {
-    if (playStatus == 1) {
-        if (onlyLoop == 0) {
-            nextMusic();
-            autoPlay();
-
-        }
-    } else {
-        playStatus = 0;
-        musicfc.pause();
-        $(".play").attr("class", 'fa fa-play-circle play');
-        $('#round_icon').removeClass('play-tx2');
-    }
-    currentnum = 0;
-},
-false);
-
-function PlayProgress(val) {
-    if (allTime && val) {
-        musicfc.currentTime = Math.round(allTime * val / 100);
-        $('#PlayProgress').css("background-size", val + "% 100%");
-    }
-}
-
+// 单曲循环
 function cycle(loop) {
     if (loop == true) {
         musicfc.addEventListener("ended", autoPlay, false);
@@ -173,205 +239,9 @@ function cycle(loop) {
     }
 }
 
-function timeChange(time) {
-    var minute = time / 60;
-    var minutes = parseInt(minute);
-    if (minutes < 10) {
-        minutes = "0" + minutes;
-    }
-    var second = time % 60;
-    seconds = parseInt(second);
-    if (seconds < 10) {
-        seconds = "0" + seconds;
-    }
-    var allTimes = "" + minutes + "" + ":" + "" + seconds + ""
-    return allTimes;
-}
 
-var dsq;
-var scale = function(btn, bar) {
-    this.btn = document.getElementById(btn);
-    this.bar = document.getElementById(bar);
-    this.step = this.bar.getElementsByTagName("DIV")[0];
-};
-scale.prototype = {
-    start: function(x) {
-        var f = this,
-        g = document,
-        b = window,
-        m = Math;
-        f.btn.style.left = x + 'px';
-        this.step.style.width = Math.max(0, x) + 'px';
-    }
-}
 
-var scale2 = new scale('progressBtn', 'progressBar');
-var colseBar = function() {
-    clearInterval(dsq);
-    dsq = setTimeout(function() {
-        $('#progressBar').hide(1000);
-    },
-    3000);
-}
 
-Sition('round_icon', 'clicked',
-function() {
-    if (playStatus == 0) {
-        autoPlay();
-    } else {
-        stopPlay();
-    }
-});
 
-Sition('fcmusic', 'rightDownIng',
-function() {
-    //autoPlay();
-    musicfc.currentTime = currentTime + 5;
-    console.log(musicfc.currentTime);
-    if (musicfc.currentTime > allTime) {
-        musicfc.currentTime = allTime;
-    }
-    currentTime = musicfc.currentTime;
-});
 
-Sition('fcmusic', 'leftDownIng',
-function() {
-    musicfc.currentTime = currentTime - 5;
-    console.log(musicfc.currentTime);
-    if (musicfc.currentTime < 0) {
-        musicfc.currentTime = 0;
-    }
-    currentTime = musicfc.currentTime;
-});
 
-Sition('fcmusic', 'rightCenter',
-function() {
-    nextMusic();
-    if (playStatus == 1) {
-        autoPlay();
-    }
-});
-Sition('fcmusic', 'leftCenter',
-function() {
-    prevMusic();
-    if (playStatus == 1) {
-        autoPlay();
-    }
-});
-
-Sition('fcmusic', 'leftUp',
-function() {
-    cycle(true);
-    $.alertView("已开启单曲循环");
-    onlyLoop = 1;
-});
-Sition('fcmusic', 'rightUp',
-function() {
-    cycle(false);
-    $.alertView("已关闭单曲循环");
-    onlyLoop = 0;
-});
-
-Sition('fcmusic', 'upRightIng',
-function(ev) {
-    volume += 0.02;
-    if (volume > 1) {
-        volume = 1;
-    }
-    $('#progressBar').show();
-    musicfc.volume = volume;
-    var progressWidth = $('.scale_panel').width();
-    if (progressWidth >= progressWidth * volume) {
-        scale2.start(progressWidth * volume - 8);
-    } else {
-        scale2.start(progressWidth * volume);
-    }
-    colseBar();
-});
-
-Sition('fcmusic', 'downRightIng',
-function(ev) {
-    volume -= 0.02;
-    if (volume <= 0) {
-        volume = 0;
-    }
-    $('#progressBar').show();
-    musicfc.volume = volume;
-    var progressWidth = $('.scale_panel').width();
-    scale2.start(progressWidth * volume);
-    colseBar();
-});
-
-Sition('fcmusic', 'downCenter',
-function(ev) {
-    $('#tools').hide();
-});
-Sition('fcmusic', 'upCenter',
-function(ev) {
-    $('#tools').show();
-});
-
-Sition('fcmusic', 'long',
-function() {
-    var msgjson = {
-        title: "",
-        msg: '<input name="search-name" id="search_name" class="search" type="search" placeholder="请输入歌曲名称" />',
-        buttons: [{
-            title: "搜索",
-            click: function() {
-                var name = $('#search_name').val();
-                $.ajax({
-                    url: "search.php?str=" + name,
-                    async: false,
-                    success: function(result) {
-                        if (!result) {
-                            $.alertView('无搜索结果');
-                        } else {
-                            var json2 = eval('(' + result + ')');
-                            jsonToArray(json2);
-                            autoPlay();
-
-                        }
-                    }
-                })
-            }
-        },
-        {
-            title: "取消",
-            color: "red",
-            click: function() {}
-        }]
-    }
-    $.alertView(msgjson);
-});
-
-function hengshuping() {
-    if (window.orientation == 90 || window.orientation == -90) {
-        $('#tools').hide();
-        $('.block').css('max-width', '1300px');
-        $('.block').css('height', '500px');
-        $('#fcmusic').css('padding', '0,0');
-    }
-}
-
-window.addEventListener("onorientationchange" in window ? "orientationchange": "resize", hengshuping, false);
-
-var msgjson = {
-    title: "",
-    msg: "大爷,第一次玩？<br />让我来教您怎么<b style='color:green'>PY</b>吧！<span style='color:red'><br /><br /> 长按页面 -> 搜索歌曲</br />双击封面 -> 播放暂停</br />底部右滑 -> 快进音乐<br />底部左滑 -> 倒退音乐<br />音量 -> 右侧上下滑动<br />单曲 -> 顶部左右滑动<br />切换 -> 居中左右滑动<br />工具 -> 居中上下滑动</span><br /><b style='background: linear-gradient(to right, red, blue);-webkit-background-clip: text;color: transparent;'>o(*￣▽￣*)o</b>",
-    buttons: [{
-        title: "下次提示",
-        color: "red",
-        click: function() {}
-    },
-    {
-        title: "朕已知晓",
-        click: function() {
-            var t = new Date(new Date().getTime() + 1000 * 60 * 60 * 24 * 30);
-            document.cookie = "a=hello; expires=" + t.toGMTString();
-        }
-    }]
-}
-if (document.cookie.indexOf("a=hello") == -1) {
-    $.alertView(msgjson);
-}
