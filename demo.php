@@ -2,8 +2,9 @@
 define('PATH', strtr(dirname(__FILE__), '\\', '/'));
 require(PATH.'/init.php');
 // 读取网易云歌单中的所有歌曲信息,填充数据到此播放器操作
-$playlist_id = (int) isset($_GET['id']) ? $_GET['id'] : 563327254;
+$playlist_id = (int) isset($_GET['id']) ? $_GET['id'] : 281237621;
 $musicLIST = save($playlist_id);
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -30,7 +31,7 @@ $musicLIST = save($playlist_id);
     <!-- 仿ios弹窗插件 -->
     <script src="alert/alert.js" type="text/javascript" ></script>
     <!-- js原生触屏位置操作插件--Sition -->
-    <script src="js/sition.js?v=0.1.5" type="text/javascript" ></script>
+    <script src="js/sition.min.js?v=0.1.6" type="text/javascript" ></script>
   </head>
   
   <body>
