@@ -220,6 +220,21 @@ function createLrc(lycText) {
 	}
 }
 
+//检测音乐
+function checkMusic() {
+	currentTime = musicfc.currentTime;
+	if(!currentTime){
+		if(playStatus == 1){
+			nextMusic();
+			autoPlay();
+		}
+	}
+};
+
+// 检测音乐是否可播放，3秒一次
+window.setInterval("checkMusic()",3000);
+
+
 // 这里来监听实时歌曲进度
 setInterval(function() {
     for (i = 0; i < lycArray.length; i++) {
