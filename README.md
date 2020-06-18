@@ -6,13 +6,16 @@
 
 采用Sition.js打造，项目地址：https://gitee.com/lovefc/Sition
 
-演示地址：https://uquhu.cn
+演示地址：https://lovefc.gitee.io/fmusic
 
 下载地址：https://gitee.com/lovefc/fmusic
 
 ### 项目截图
-![](https://uquhu.cn/fmusic.png)
+
+![](/fmusic.png)
+
 ### 作者备注
+
 - 如果发现问题，欢迎向我反馈，毕竟一个人测试有限，会有注意不到的地方。
 - 作者QQ：1102952084
 - 作者博客：lovefc.cn
