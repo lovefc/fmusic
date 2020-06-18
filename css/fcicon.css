@@ -1,0 +1,74 @@
+@font-face {
+	font-family: 'fc-icon';
+	src: url(font/fc.woff2?v=20200618) format("woff2"), url(font/fc.woff?v=20200618) format("woff");
+	font-weight: normal;
+	font-style: normal;
+}
+
+[class^="fc-icon"],
+[class*="fc-icon-"] {
+	font-family: 'fc-icon' !important;
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+/** 字体大小 **/
+
+/** 小 **/
+.fc-icon-xiao {
+	font-size: 30px !important;
+}
+
+/** 中 **/
+.fc-icon-zhong {
+	font-size: 60px !important;
+}
+
+/** 大 **/
+.fc-icon-da {
+	font-size: 90px !important;
+}
+
+/** 中大 **/
+.fc-icon-zhongda {
+	font-size: 120px !important;
+}
+
+/** 特大 **/
+.fc-icon-teda {
+	font-size: 150px !important;
+}
+
+.fc-icon-1:before {
+	content: "\e001";
+}
+
+.fc-icon-2:before {
+	content: "\e002";
+}
+
+.fc-icon-3:before {
+	content: "\e003";
+}
+
+.fc-icon-left:before {
+	content: "\e004";
+}
+
+.fc-icon-right:before {
+	content: "\e005";
+}
+
+.fc-icon-pause:before {
+	content: "\e006";
+}
+
+.fc-icon-play:before {
+	content: "\e007";
+}

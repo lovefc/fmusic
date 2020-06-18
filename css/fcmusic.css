@@ -197,17 +197,11 @@ height: 100vh;
   background-attachment: fixed;
 }
 
-.songtext {
-  line-height: 25px;
-  height: 25px
-}
-
-.songtext .songname {
+.songname {
   font-weight: bold;
   font-family: "Microsoft Yahei";
-  background: linear-gradient(to right, #88ada6, #2e4e7e);
-  -webkit-background-clip: text;
-  color: transparent;
+  line-height: 25px;
+  height: 25px
 }
 
 /*
@@ -274,7 +268,7 @@ height: 100vh;
   background: linear-gradient(to right, #DDD, #888);
   -webkit-background-clip: text;
   color: transparent;
-
+  padding-left: 10px;
 }
 
 .play-right {
@@ -283,11 +277,11 @@ height: 100vh;
   background: linear-gradient(to right, #888, #DDD);
   -webkit-background-clip: text;
   color: transparent;
-
+  padding-right: 10px;
 }
 
 .play {
-  font-size: 75px;
+  font-size: 40px;
   margin: -21px 0 0 0;
   background: linear-gradient(to right, #FFF, #888);
   -webkit-background-clip: text;

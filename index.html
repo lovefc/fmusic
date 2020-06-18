@@ -1,180 +1,179 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>移动手势音乐播放</title>
-	<meta name="keywords" content="封尘,lovefc,fc,个人原创,手势操作,移动播放器,lovefc.cn"/>	
-    <meta name="description" content="封尘,lovefc,fc,个人原创,手势操作,移动播放器,lovefc.cn"/>
-    <meta name="renderer" content="webkit">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <link rel="icon" href="favicon.ico" type="image/x-icon" />
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
-    <!-- 字体文件 -->
-    <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-    <!-- 背景css -->
-    <link href="css/bg.css?v=0.0.1" rel="stylesheet">
-    <!-- 播放器css -->
-    <link href="css/fcmusic.css?v=0.1.6" rel="stylesheet">
-    <!-- 仿ios弹窗插件css -->
-    <link href="alert/alert.css" rel="stylesheet">
-    <script src="https://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/parallax.js/1.5.0/parallax.min.js"></script>-->
-    <!-- 仿ios弹窗插件 -->
-    <script src="alert/alert.js" type="text/javascript" ></script>
-    <!-- js原生触屏位置操作插件--Sition -->
-    <script src="js/sition.min.js?v=0.1.6.1" type="text/javascript" ></script>
-  </head>
-  
-  <body>
-    <!-- 网页背景部分,这个其实你可以自定义网页背景，我只是为了好看，所有用了这个 -->
-    <div id="scene" class="stars-wrapper">
-      <div data-depth="0.00" class="layer"></div>
-      <div data-depth="0.30" class="stars-cluster stars-cluster-1">
-        <div class="star star-1"></div>
-        <div class="star star-2"></div>
-        <div class="star star-3"></div>
-        <div class="star star-4"></div>
-        <div class="star star-5"></div>
-        <div class="star star-6"></div>
-        <div class="star star-7"></div>
-        <div class="star star-8"></div>
-        <div class="star star-9"></div>
-        <div class="star star-10"></div>
-        <div class="star star-11"></div>
-        <div class="star star-12"></div>
-        <div class="star star-13"></div>
-        <div class="star star-14"></div>
-        <div class="star star-15"></div>
-        <div class="star star-16"></div>
-        <div class="star star-17"></div>
-        <div class="star star-18"></div>
-        <div class="star star-19"></div>
-        <div class="star star-20"></div>
-        <div class="star star-21"></div>
-        <div class="star star-22"></div>
-        <div class="star star-23"></div>
-        <div class="star star-24"></div>
-        <div class="star star-25"></div>
-        <div class="star star-26"></div>
-        <div class="star star-27"></div>
-        <div class="star star-28"></div>
-        <div class="star star-29"></div>
-        <div class="star star-30"></div>
-        <div class="star star-31"></div>
-        <div class="star star-32"></div>
-        <div class="star star-33"></div>
-        <div class="star star-34"></div>
-        <div class="star star-35"></div>
-        <div class="star star-36"></div>
-        <div class="star star-37"></div>
-        <div class="star star-38"></div>
-        <div class="star star-39"></div>
-        <div class="star star-40"></div>
-      </div>
-      <div data-depth="0.50" class="stars-cluster stars-cluster-2">
-        <div class="star star-1"></div>
-        <div class="star star-2"></div>
-        <div class="star star-3"></div>
-        <div class="star star-4"></div>
-        <div class="star star-5"></div>
-        <div class="star star-6"></div>
-        <div class="star star-7"></div>
-        <div class="star star-8"></div>
-        <div class="star star-9"></div>
-        <div class="star star-10"></div>
-        <div class="star star-11"></div>
-        <div class="star star-12"></div>
-        <div class="star star-13"></div>
-        <div class="star star-14"></div>
-        <div class="star star-15"></div>
-        <div class="star star-16"></div>
-        <div class="star star-17"></div>
-        <div class="star star-18"></div>
-        <div class="star star-19"></div>
-        <div class="star star-20"></div>
-        <div class="star star-21"></div>
-        <div class="star star-22"></div>
-        <div class="star star-23"></div>
-        <div class="star star-24"></div>
-        <div class="star star-25"></div>
-        <div class="star star-26"></div>
-        <div class="star star-27"></div>
-        <div class="star star-28"></div>
-        <div class="star star-29"></div>
-        <div class="star star-30"></div>
-        <div class="star star-31"></div>
-        <div class="star star-32"></div>
-        <div class="star star-33"></div>
-        <div class="star star-34"></div>
-        <div class="star star-35"></div>
-        <div class="star star-36"></div>
-        <div class="star star-37"></div>
-        <div class="star star-38"></div>
-        <div class="star star-39"></div>
-        <div class="star star-40"></div>
-      </div>
-      <div data-depth="0.90" class="stars-cluster stars-cluster-3">
-        <div class="star star-1"></div>
-        <div class="star star-2"></div>
-        <div class="star star-3"></div>
-        <div class="star star-4"></div>
-        <div class="star star-5"></div>
-        <div class="star star-6"></div>
-        <div class="star star-7"></div>
-        <div class="star star-8"></div>
-        <div class="star star-9"></div>
-        <div class="star star-10"></div>
-        <div class="star star-11"></div>
-        <div class="star star-12"></div>
-        <div class="star star-13"></div>
-        <div class="star star-14"></div>
-        <div class="star star-15"></div>
-      </div>
-    </div>
-	<!-- 背景结束了 -->
-	
-	<!-- 播放器部分 -->
-	
-    <div class="fcmusic">
-      <div class="items-group">
-        <div class="item active">
-          <div class="block" id="fcmusic">
-            <span class="circleLight"></span>
-            <div class="text">
-              <span class="icon">
-                <img src="http://p2.music.126.net/WoR2LbM1IFauFpvhBWOjqA==/6642149743396577.jpg?param=300x300" id="round_icon" class="round_icon play-tx"></span>
-              <span id="tools">
-                <i class="fa fa-backward play-left"></i>
-                <i class="fa fa fa-play-circle play"></i>
-                <i class="fa fa-forward play-right"></i>
-                <br /><br />
-                <input type="range" name="PlayProgress" id="PlayProgress" value="0" onchange="PlayProgress(this.value)">
-              </span>
-              <p class="songtext">
-			    <b class="songname" id="lyctext"></b>
-              </p>			  
-              <div class="scale_panel">
-                <div class="scale" id="progressBar">
-                  <div></div>
-                  <span id="progressBtn"></span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-	<!-- 播放器部分 -->
-	
-	<!-- 离子背景加载js -->
-    <script src="js/loader.js"></script>
-    <script>
-	    var musicJson = [{"title":"\u5fc3\u5982\u6b62\u6c34","author":"Ice Paper","pic":"https:\/\/p1.music.126.net\/MLQl_7poLz2PTON6_JZZRQ==\/109951163938219545.jpg?param=200y200","url":"https:\/\/music.163.com\/song\/media\/outer\/url?id=1349292048.mp3","lyc":"[00:00.000] \u4f5c\u66f2 : Ice Paper\n[00:00.196] \u4f5c\u8bcd : Ice Paper\n[00:00.588]\u7f16\u66f2\uff1aIce Paper\n[00:00.838]\u6df7\u97f3\uff1aIce Paper\n[00:00.941]\u91c7\u6837\uff1aQUIX - Deep Home\n[00:01.042]talking to the moon \u653e\u4e0d\u4e0b\u7684\u7406\u7531\n[00:03.697]\u662f\u4e0d\u662f\u4f1a\u62c5\u5fc3 \u53d8\u6210\u4e00\u53ea\u91ce\u517d\n[00:07.957]walking on the roof \u4e3a\u5fc3\u8df3\u7684\u8282\u594f\n[00:11.214]\u662f\u4e0d\u662f\u4f1a\u6682\u505c \u5728\u4e16\u754c\u7684\u5c3d\u5934\n[00:16.225]\u6d78\u6ce1\u5728\u5341\u516c\u5347\u7684\u74f6\u91cc\n[00:18.732]\u5355\u7eaf\u60f3\u8981\u547c\u5438 \u8ba8\u538c\u4e91\u91cc\u96fe\u91cc\n[00:23.744]\u51fa\u6ca1\u5728\u88ab\u9057\u5fd8\u7684\u62bd\u5c49\n[00:26.250]\u4f60\u66fe\u7ecf\u7684\u624b\u7b14 \u5199\u7740\u5fc3\u53e3\u4e0d\u4e00\n[00:31.264]\u73b0\u5728\u662f\u9ed1\u591c\u767d\u663c\u6211\u90fd\u968f\u4fbf\n[00:35.025]\u50cf\u8ff7\u8def\u7684\u5929\u9e45\u6e38\u5931\u5728\u6c34\u9762\n[00:38.785]\u5c3d\u529b\u53bb\u6355\u6349\u6076\u68a6\u91cc\u7684\u788e\u7247\n[00:42.544]\u4e0d\u9700\u8981\u4f60\u7684\u6b4c\u6765\u5e2e\u6211\u50ac\u7720\n[00:45.554]talking to the moon \u653e\u4e0d\u4e0b\u7684\u7406\u7531\n[00:48.813]\u662f\u4e0d\u662f\u4f1a\u62c5\u5fc3 \u53d8\u6210\u4e00\u53ea\u91ce\u517d\n[00:53.075]walking on the roof \u4e3a\u5fc3\u8df3\u7684\u8282\u594f\n[00:56.333]\u662f\u4e0d\u662f\u4f1a\u6682\u505c \u5728\u65f6\u95f4\u7684\u5c3d\u5934\n[01:00.593]\u8bf4\u4e0d\u5b8c\u7684\u8bdd \u627e\u4e0d\u5b8c\u7684\u501f\u53e3\n[01:03.851]\u662f\u4e0d\u662f\u4f1a\u72e0\u5fc3 \u628a\u6211\u9a84\u50b2\u89e3\u5256\n[01:08.111]\u7231\u7740\u8c01\u7684\u5979 \u80fd\u5426\u5c06\u4f60\u63a5\u53d7\n[01:11.370]\u662f\u4e0d\u662f\u4f1a\u4e0a\u763e \u62dc\u6258\u6162\u4e9b\u964d\u843d\n[01:15.381]\u534e\u4e3d\u7684\u7ea2\u623f\u95f4 \u53d1\u9709\u7684\u65e7\u5531\u7247\n[01:19.140]\u6ca1\u5fc5\u8981\u542c\u4e2a\u904d \u6389\u4e86\u6f06\u7684\u64ad\u653e\u952e\n[01:22.900]\u4f60\u60c5\u613f\u5192\u7740\u9669 \u7761\u5728\u4ed6\u7684\u8eab\u8fb9\n[01:26.659]\u6ca1\u8010\u5fc3\u53bb\u5206\u8fa8 \u8c01\u548c\u8c01\u80fd\u591f\u8d70\u591a\u8fdc\n[01:30.420]\u7a7f\u8fc7\u51e0\u6761\u8857\u5c31\u80fd\u627e\u5230\u5173\u952e\n[01:34.180]\u89e3\u5f00\u6211\u7684\u95ee\u9898\u6ca1\u4ec0\u4e48\u60ac\u5ff5\n[01:37.940]\u8f6c\u4e86\u51e0\u4e2a\u5f2f\u8fd8\u662f\u56de\u5230\u539f\u70b9\n[01:41.697]\u6211\u8be5\u5982\u4f55\u51fa\u73b0\u5728\u4f60\u7684\u9762\u524d\n[01:45.458]talking to the moon \u653e\u4e0d\u4e0b\u7684\u7406\u7531\n[01:48.715]\u662f\u4e0d\u662f\u4f1a\u62c5\u5fc3 \u53d8\u6210\u4e00\u53ea\u91ce\u517d\n[01:52.977]walking on the roof \u4e3a\u5fc3\u8df3\u7684\u8282\u594f\n[01:56.236]\u662f\u4e0d\u662f\u4f1a\u6682\u505c \u5728\u65f6\u95f4\u7684\u5c3d\u5934\n[02:00.498]\u8bf4\u4e0d\u5b8c\u7684\u8bdd \u627e\u4e0d\u5b8c\u7684\u501f\u53e3\n[02:03.757]\u662f\u4e0d\u662f\u4f1a\u72e0\u5fc3 \u628a\u6211\u9a84\u50b2\u89e3\u5256\n[02:08.020]\u7231\u7740\u8c01\u7684\u5979 \u80fd\u5426\u5c06\u4f60\u63a5\u53d7\n[02:11.531]\u662f\u4e0d\u662f\u4f1a\u4e0a\u763e \u62dc\u6258\u6162\u4e9b\u964d\u843d\n[02:15.540]talking to the moon \u653e\u4e0d\u4e0b\u7684\u7406\u7531\n[02:18.799]\u662f\u4e0d\u662f\u4f1a\u62c5\u5fc3 \u53d8\u6210\u4e00\u53ea\u91ce\u517d\n[02:23.058]walking on the roof \u4e3a\u5fc3\u8df3\u7684\u8282\u594f\n[02:26.318]\u662f\u4e0d\u662f\u4f1a\u6682\u505c \u5728\u65f6\u95f4\u7684\u5c3d\u5934\n[02:30.579]\u8bf4\u4e0d\u5b8c\u7684\u8bdd \u627e\u4e0d\u5b8c\u7684\u501f\u53e3\n[02:33.836]\u662f\u4e0d\u662f\u4f1a\u72e0\u5fc3 \u628a\u6211\u9a84\u50b2\u89e3\u5256\n[02:38.099]\u7231\u7740\u8c01\u7684\u5979 \u80fd\u5426\u5c06\u4f60\u63a5\u53d7\n[02:41.359]\u662f\u4e0d\u662f\u4f1a\u4e0a\u763e \u62dc\u6258\u6162\u4e9b\u964d\u843d\n"},{"title":"\u7eff\u8272","author":"\u9648\u96ea\u51dd","pic":"https:\/\/p1.music.126.net\/R4ZP3AJ9xV0vvw8LX7AbMA==\/109951163860425334.jpg?param=200y200","url":"https:\/\/music.163.com\/song\/media\/outer\/url?id=1345848098.mp3","lyc":"[00:00.000] \u4f5c\u66f2 : \u9648\u96ea\u51dd\n[00:00.000] \u4f5c\u8bcd : \u9648\u96ea\u51dd\n[00:00.00]\u7f16\u66f2\uff1aDadz\n[00:00.880]\u82e5\u4e0d\u662f\u4f60\u7a81\u7136\u95ef\u8fdb\u6211\u751f\u6d3b\n[00:04.370]\u6211\u600e\u4f1a\u628a\u6b7b\u5b88\u7684\u5bc2\u5bde\u653e\u4efb\u4e86\n[00:25.850]\u8bf4\u4e0d\u75db\u82e6\u90a3\u662f\u5047\u7684\n[00:29.320]\u6bd5\u7adf\u6211\u7684\u5fc3\u4e5f\u662f\u8089\u505a\u7684\n[00:33.700]\u4f60\u79bb\u5f00\u65f6\u6211\u5fc3\u91cc\u7684\u5f69\u8679\n[00:37.600]\u5c31\u53d8\u6210\u7070\u8272\n[00:41.570]\u8bf4\u4e0d\u5fc3\u9178\u90a3\u662f\u5047\u7684\n[00:45.020]\u5982\u679c\u6211\u771f\u7684\u6ca1\u90a3\u4e48\u7231\u8fc7\n[00:48.940]\u7231\u7740\u4e00\u4e2a\u6ca1\u6709\u7075\u9b42\u7684\u4eba\n[00:52.430]\u4e16\u754c\u90fd\u662f\u9ed1\u8272\n[00:56.670]\u82e5\u4e0d\u662f\u4f60\u7a81\u7136\u95ef\u8fdb \u6211\u751f\u6d3b\n[01:00.520]\u6211\u600e\u4f1a\u628a\u6b7b\u5b88\u7684\u5bc2\u5bde \u653e\u4efb\u4e86\n[01:04.459]\u7231\u6211\u7684\u8bdd\u4f60\u90fd\u8bf4\n[01:06.459]\u7231\u6211\u7684\u4e8b\u4f60\u4e0d\u505a\n[01:08.469]\u6211\u5374\u628a\u751c\u8a00\u871c\u8bed\u5f53\u505a\u4f60\u7231\u6211\u7684\u8eaf\u58f3\n[01:12.890]\u4f60\u7684\u60b2\u4f24\u96be\u8fc7\u6211\u4e0d\u53c2\u7834\n[01:16.310]\u6211\u4e5f\u4f1a\u628a\u66fe\u7ecf\u7684\u4e14\u8fc7 \u5f53\u65bd\u820d\n[01:20.250]\u4e0d\u53bb\u8ba1\u8f83\u4f60\u592a\u591a\n[01:22.250]\u4ece\u6b64\u4f60\u5728\u6211\u5fc3\u91cc\n[01:23.890]\u53ea\u5269\u7eff\u8272\n[01:44.480]\u8bf4\u5f88\u5feb\u6d3b\u90a3\u662f\u5047\u7684\n[01:47.989]\u4f60\u7684\u540d\u5b57\u4f9d\u7136\u90a3\u4e48\u6df1\u523b\n[01:51.940]\u6bcf\u4e2a\u5b57\u90fd\u523a\u7a7f\u6211\u7684\u5fc3\u810f\n[01:55.739]\u90a3\u9c9c\u660e\u7684\u75db\u662f\u7ea2\u8272\n[01:59.569]\u82e5\u4e0d\u662f\u4f60\u7a81\u7136\u95ef\u8fdb \u6211\u751f\u6d3b\n[02:03.510]\u6211\u600e\u4f1a\u628a\u6b7b\u5b88\u7684\u5bc2\u5bde \u653e\u4efb\u4e86\n[02:07.400]\u7231\u6211\u7684\u8bdd\u4f60\u90fd\u8bf4\n[02:09.439]\u7231\u6211\u7684\u4e8b\u4f60\u4e0d\u505a\n[02:11.400]\u6211\u5374\u628a\u751c\u8a00\u871c\u8bed\u5f53\u505a\u4f60\u7231\u6211\u7684\u8eaf\u58f3\n[02:15.770]\u4f60\u7684\u60b2\u4f24\u96be\u8fc7\u6211\u4e0d\u53c2\u7834\n[02:19.199]\u6211\u4e5f\u4f1a\u628a\u66fe\u7ecf\u7684\u4e14\u8fc7 \u5f53\u65bd\u820d\n[02:23.210]\u4e0d\u53bb\u8ba1\u8f83\u4f60\u592a\u591a\n[02:25.129]\u4ece\u6b64\u4f60\u5728\u6211\u5fc3\u91cc\n[02:26.810]\u53ea\u5269\u7eff\u8272\n[02:31.830]\u547c\uff5e\n[03:33.979]\u82e5\u4e0d\u662f\u4f60\u7a81\u7136\u95ef\u8fdb \u6211\u751f\u6d3b\n[03:37.879]\u6211\u600e\u4f1a\u628a\u6b7b\u5b88\u7684\u5bc2\u5bde \u653e\u4efb\u4e86\n[03:41.789]\u7231\u6211\u7684\u8bdd\u4f60\u90fd\u8bf4\n[03:43.830]\u7231\u6211\u7684\u4e8b\u4f60\u4e0d\u505a\n[03:45.800]\u6211\u5374\u628a\u751c\u8a00\u871c\u8bed\u5f53\u505a\u4f60\u7231\u6211\u7684\u8eaf\u58f3\n[03:50.330]\u82e5\u4e0d\u662f\u4f60\u7a81\u7136\u95ef\u8fdb \u6211\u751f\u6d3b\n[03:53.660]\u6211\u600e\u4f1a\u628a\u6b7b\u5b88\u7684\u5bc2\u5bde \u653e\u4efb\u4e86\n[03:57.569]\u7231\u6211\u7684\u8bdd\u4f60\u90fd\u8bf4\n[03:59.580]\u7231\u6211\u7684\u4e8b\u4f60\u4e0d\u505a\n[04:01.599]\u6211\u5374\u628a\u751c\u8a00\u871c\u8bed\u5f53\u505a\u4f60\u7231\u6211\u7684\u8eaf\u58f3\n[04:05.990]\u4f60\u7684\u60b2\u4f24\u96be\u8fc7\u6211\u4e0d\u53c2\u7834\n[04:09.430]\u6211\u4e5f\u4f1a\u628a\u66fe\u7ecf\u7684\u4e14\u8fc7 \u5f53\u65bd\u820d\n[04:13.349]\u82e5\u4e0d\u662f\u4f60\u7a81\u7136\u95ef\u8fdb \u6211\u751f\u6d3b\n[04:17.319]\u6211\u600e\u4f1a\u628a\u6b7b\u5b88\u7684\u5bc2\u5bde \u653e\u4efb\u4e86\n[04:21.199]\u7231\u6211\u7684\u8bdd\u4f60\u90fd\u8bf4\n[04:23.230]\u7231\u6211\u7684\u4e8b\u4f60\u4e0d\u505a\n[04:25.250]\u6211\u5374\u628a\u751c\u8a00\u871c\u8bed\u5f53\u505a\u4f60\u7231\u6211\u7684\u8eaf\u58f3\n[04:31.290]\u548c\u58f0\uff1a\u674e\u7f8e\u7075\u829d\n[04:32.810]\u6df7\u97f3\uff1a\u4e00\u66f2\u4e0d\u7a7a\n[04:34.040]\u53d1\u884c\uff1a3SEVEN\u53c1\u4e03\n"},{"title":"\u7eff\u6d32","author":"\u989c\u5c0f\u5065","pic":"https:\/\/p1.music.126.net\/x7IbpoY-7UPq_u6I-A4_LQ==\/109951163355955457.jpg?param=200y200","url":"https:\/\/music.163.com\/song\/media\/outer\/url?id=562675760.mp3","lyc":"[00:00.000] \u4f5c\u66f2 : \u989c\u5c0f\u5065\n[00:00.688] \u4f5c\u8bcd : \u674e\u60e0\u8d85\n[00:02.66]\u7f16\u66f2\uff1a\u989c\u5c0f\u5065\n[00:04.01]\n[00:09.08]\u7537\uff1a\n[00:09.63]\n[00:11.78]I get life is a war\n[00:14.16]\n[00:14.69]\u4e0d\u8fdb\u5219\u9000\u539f\u5219\n[00:17.01]\n[00:17.58]\u7a7f\u8d8a\u6c99\u6f20\u7684\u9a86\u9a7c\n[00:19.81]\u591a\u574e\u5777\n[00:21.74]\u5973\uff1a\n[00:22.17]\n[00:23.47]I get life is a war\n[00:26.34]\u8d8a\u653e\u4e0d\u4e0b\u4ec0\u4e48\n[00:29.22]\u8d8a\u8981\u88ab\u4ec0\u4e48\u6298\u78e8\n[00:31.51]\u6323\u4e0d\u8131\n[00:32.99]\u7684\u67b7\u9501\n[00:34.20]\u7537\uff1a\n[00:34.48]\n[00:36.40]\u4eca\u5929\u6211\u53ea\u60f3\u88ab\u803d\u6401\n[00:39.17]\u505c\u7559\u5728\u6709\u4f60\u7684\u6f29\u6da1\n[00:42.21]\n[00:47.95]\u4e0d\u7406\u4f1a\u522b\u4eba\u600e\u4e48\u8bf4\n[00:50.89]\u4e0d\u8981\u4f5c\u9884\u5224\u548c\u5047\u8bbe\n[00:53.90]\n[00:54.98]Walk in love\n[00:56.36]Soak in love\n[00:57.48]\u5408\uff1a\n[00:57.86]\u4f60\u662f\u6211\u7684\u7eff\u6d32\u6b62\u6e34\n[01:02.20]\u91cd\u590d\u4e00\u904d\n[01:03.65]\u518d\u6765\u4e00\u904d\n[01:05.19]\u8eaf\u4f53\u98d8\u7740\n[01:06.61]\u7075\u9b42\u98d8\u7740\n[01:08.08]\u7231\u90fd\u98d8\u7740\n[01:09.53]\u5168\u90fd\u98d8\u7740\n[01:10.61]\n[01:11.11]\u7409\u7483\u66ae\u8272\n[01:13.99]\u4e0d\u6b62\u4e00\u904d\n[01:15.33]\u4f55\u6b62\u4e00\u904d\n[01:16.90]\u6b32\u671b\u98d8\u7740\n[01:18.35]\u795e\u5fd7\u98d8\u7740\n[01:19.77]\u5168\u90fd\u98d8\u7740\n[01:21.24]\u5168\u90fd\u8ff7\u60d1\n[01:22.97]\n[01:31.74]\u7537\uff1a\n[01:32.20]\n[01:45.57]I get life is a war\n[01:48.34]\u7981\u4e0d\u8d77\u8c01\u6325\u970d\n[01:50.72]\n[01:51.27]\u9009\u62e9\u7528\u54ea\u4e9b\u8def\u8fc7\n[01:53.52]\u5f53\u8bd5\u9519\u820d\u4e0d\u5f97\n[01:56.22]\u5973\uff1a\n[01:56.57]\n[01:58.32]\u4eca\u5929\u6211\u53ea\u60f3\u88ab\u803d\u6401\n[02:01.16]\u505c\u7559\u5728\u6709\u4f60\u7684\u6f29\u6da1\n[02:04.26]\n[02:09.94]\u4e0d\u7406\u4f1a\u522b\u4eba\u600e\u4e48\u8bf4\n[02:12.89]\u4e0d\u8981\u4f5c\u9884\u5224\u548c\u5047\u8bbe\n[02:15.88]\n[02:17.19]Walk in love\n[02:18.33]Soak in love\n[02:19.43]\u5408\uff1a\n[02:19.97]\u4f60\u662f\u6211\u7684\u7eff\u6d32\u6b62\u6e34\n[02:24.24]\u91cd\u590d\u4e00\u904d\n[02:25.64]\u518d\u6765\u4e00\u904d\n[02:27.15]\u8eaf\u4f53\u98d8\u7740\n[02:28.59]\u7075\u9b42\u98d8\u7740\n[02:30.05]\u7231\u90fd\u98d8\u7740\n[02:31.52]\u5168\u90fd\u98d8\u7740\n[02:32.64]\n[02:33.24]\u7409\u7483\u66ae\u8272\n[02:35.96]\u4e0d\u6b62\u4e00\u904d\n[02:37.35]\u4f55\u6b62\u4e00\u904d\n[02:38.89]\u6b32\u671b\u98d8\u7740\n[02:40.32]\u795e\u5fd7\u98d8\u7740\n[02:41.76]\u5168\u90fd\u98d8\u7740\n[02:43.20]\u5168\u90fd\u8ff7\u60d1\n[02:44.32]\u4f60\u662f\u6211\u7684\u7eff\u6d32\u6b62\u6e34\n[02:47.75]\u91cd\u590d\u4e00\u904d\n[02:49.10]\u518d\u6765\u4e00\u904d\n[02:50.61]\u8eaf\u4f53\u98d8\u7740\n[02:52.06]\u7075\u9b42\u98d8\u7740\n[02:53.48]\u7231\u90fd\u98d8\u7740\n[02:54.96]\u5168\u90fd\u98d8\u7740\n[02:56.40]\u7409\u7483\u66ae\u8272\n[02:59.38]\u4e0d\u6b62\u4e00\u904d\n[03:00.80]\u4f55\u6b62\u4e00\u904d\n[03:02.32]\u6b32\u671b\u98d8\u7740\n[03:03.72]\u795e\u5fd7\u98d8\u7740\n[03:05.16]\u5168\u90fd\u98d8\u7740\n[03:06.66]\u5168\u90fd\u8ff7\u60d1\n[03:09.00]\n[03:10.00]\u5236\u4f5c\u4eba\uff1a\u989c\u5c0f\u5065\n[03:11.00]\u548c\u58f0\uff1a\u989c\u5c0f\u5065\/\u4efb\u7136\n[03:12.00]\u6df7\u97f3\uff1aY.S\n[03:13.00]\u6bcd\u5e26\uff1aY.S\n[03:14.00]\u5f55\u97f3\u68da\uff1aJYKEN Studio\n[03:15.00]\u6df7\u97f3\u68da\uff1aJYKEN Studio\n[03:16.00]\u6bcd\u5e26\u68da\uff1aJYKEN Studio\n[03:17.00]\u4f01\u5212\u8425\u9500\uff1a\u68a6\u7ae5\u5a31\u4e50\n[03:18.00]\u53d1\u884c\u516c\u53f8\uff1a\u65e0\u9650\u53ef\u80fd\n"},{"title":"\u5316\u8eab\u5b64\u5c9b\u7684\u9cb8","author":"\u4e0d\u624d","pic":"https:\/\/p1.music.126.net\/Za_wWwp1CRCMAesBbE994A==\/109951163023780798.jpg?param=200y200","url":"https:\/\/music.163.com\/song\/media\/outer\/url?id=505446396.mp3","lyc":"[00:00.000] \u4f5c\u66f2 : \u5f90\u6d69\n[00:01.000] \u4f5c\u8bcd : \u6c83\u7279\u827e\u6587\u513f\n[00:34.500]\u6211\u662f\u53ea\u5316\u8eab\u5b64\u5c9b\u7684\u84dd\u9cb8\n[00:37.490]\u6709\u7740\u6700\u5de8\u5927\u7684\u8eab\u5f71\n[00:42.100]\u9c7c\u867e\u5728\u8eab\u4fa7\u7a7f\u884c\n[00:46.320]\u4e5f\u6709\u98de\u9e1f\u5728\u80cc\u4e0a\u505c\n[00:51.200]\u6211\u8def\u8fc7\u592a\u591a\u592a\u7f8e\u7684\u5947\u666f\n[00:54.370]\u5982\u540c\u4f0a\u7538\u822c\u7684\u4ed9\u5883\n[00:58.720]\u800c\u5927\u6d77\u592a\u5e73\u592a\u9759\n[01:02.900]\u591a\u5c11\u6545\u4e8b\u65e0\u4eba\u503e\u542c\n[01:07.140]\u6211\u7231\u5730\u4e2d\u6d77\u7684\u5929\u6674\n[01:11.390]\u7231\u897f\u4f2f\u5229\u4e9a\u7684\u96ea\u666f\n[01:14.830]\u7231\u4e07\u4e08\u9ad8\u7a7a\u7684\u9e70\n[01:17.190]\u7231\u809a\u76ae\u4e0b\u7684\u85fb\u8347\n[01:19.900]\u6211\u5728\u5c3d\u5fc3\u5c3d\u529b\u5730\u591a\u60c5\n[01:23.170]\u76f4\u5230\u90a3\u4e00\u5929\n[01:27.570]\u4f60\u7684\u8863\u886b\u7834\u65e7\n[01:29.840]\u800c\u6b4c\u58f0\u5374\u6e29\u67d4\n[01:31.990]\u966a\u6211\u6f2b\u65e0\u76ee\u7684\u56db\u5904\u6f02\u6d41\n[01:35.960]\u6211\u7684\u80cc\u810a\u5982\u8352\u4e18\n[01:38.030]\u800c\u4f60\u5374\u5fae\u7b11\u6446\u9996\n[01:41.030]\u628a\u5b83\u5f53\u6210\u6574\u4e2a\u5b87\u5b99\n[01:44.570]\u4f60\u4e0e\u592a\u9633\u6325\u624b\n[01:46.570]\u4e5f\u540c\u6d77\u9e25\u95ee\u5019\n[01:48.820]\u966a\u6211\u7231\u5929\u7231\u5730\u56db\u5904\u98ce\u6d41\n[01:52.840]\u53ea\u662f\u9057\u61be\u4f60\u7ec8\u7a76\n[01:54.890]\u65e0\u6cd5\u8eba\u5728\u6211\u80f8\u53e3\n[01:57.760]\u6b23\u8d4f\u591c\u7a7a\u6700\u8fbd\u9614\u7684\u4e0d\u673d\n[02:01.140]\u628a\u661f\u5b50\u653e\u5165\u7738\n[02:19.770]\u6211\u662f\u53ea\u5316\u8eab\u5b64\u5c9b\u7684\u84dd\u9cb8\n[02:22.830]\u6709\u7740\u6700\u5de8\u5927\u7684\u8eab\u5f71\n[02:27.460]\u9c7c\u867e\u5728\u8eab\u4fa7\u7a7f\u884c\n[02:31.290]\u4e5f\u6709\u98de\u9e1f\u5728\u80cc\u4e0a\u505c\n[02:36.470]\u6211\u6709\u7740\u592a\u51b7\u592a\u6e05\u7684\u5929\u6027\n[02:39.590]\u5bf9\u5929\u4e0a\u7684\u5979\u52a8\u8fc7\u60c5\n[02:44.060]\u800c\u4e91\u6735\u592a\u8fdc\u592a\u8f7b\n[02:48.200]\u8f97\u8f6c\u4e4b\u540e\u5404\u5b89\u5929\u547d\n[02:52.610]\u6211\u672a\u5165\u8fc7\u7e41\u534e\u4e4b\u5883\n[02:56.570]\u672a\u542c\u8fc7\u55a7\u56a3\u7684\u58f0\u97f3\n[03:00.220]\u672a\u89c1\u8fc7\u592a\u591a\u751f\u7075\n[03:02.330]\u672a\u6709\u8fc7\u6eda\u70eb\u5fc3\u60c5\n[03:05.030]\u6240\u4ee5\u4e5f\u672a\u89c9\u5927\u6d0b\u6b63\u4e2d\n[03:08.350]\u6709\u591a\u4e48\u5b89\u9759\n[03:12.870]\u4f60\u7684\u8863\u886b\u7834\u65e7\n[03:15.030]\u800c\u6b4c\u58f0\u5374\u6e29\u67d4\n[03:17.310]\u966a\u6211\u6f2b\u65e0\u76ee\u7684\u56db\u5904\u6f02\u6d41\n[03:21.260]\u6211\u7684\u80cc\u810a\u5982\u8352\u4e18\n[03:23.330]\u800c\u4f60\u5374\u5fae\u7b11\u6446\u9996\n[03:26.150]\u628a\u5b83\u5f53\u6210\u6574\u4e2a\u5b87\u5b99\n[03:29.780]\u4f60\u4e0e\u592a\u9633\u6325\u624b\n[03:31.920]\u4e5f\u540c\u6d77\u9e25\u95ee\u5019\n[03:34.050]\u966a\u6211\u7231\u5929\u7231\u5730\u56db\u5904\u98ce\u6d41\n[03:37.910]\u53ea\u662f\u9057\u61be\u4f60\u7ec8\u7a76\n[03:40.050]\u65e0\u6cd5\u8eba\u5728\u6211\u80f8\u53e3\n[03:43.040]\u6b23\u8d4f\u591c\u7a7a\u6700\u8fbd\u9614\u7684\u4e0d\u673d\n[03:46.190]\u628a\u661f\u5b50\u653e\u5165\u7738\n[03:50.960]\u4f60\u7684\u6307\u5c16\u8f7b\u67d4\n[03:52.940]\u629a\u6478\u8fc7\u6211\u6240\u6709\n[03:55.120]\u98ce\u6d6a\u51b2\u649e\u51fa\u7684\u4e11\u964b\u75ae\u53e3\n[03:59.070]\u4f60\u773c\u4e2d\u6709\u6625\u4e0e\u79cb\n[04:01.240]\u80dc\u8fc7\u6211\u89c1\u8fc7\u7231\u8fc7\n[04:04.130]\u7684\u4e00\u5207\u5c71\u5ddd\u4e0e\u6cb3\u6d41\n[04:07.780]\u66fe\u4ee5\u4e3a\u6211\u80a9\u5934\n[04:09.880]\u662f\u90a3\u4e48\u7684\u5bbd\u539a\n[04:11.930]\u8db3\u591f\u6491\u8d77\u6d77\u5e95\u90a3\u5ea7\u743c\u697c\n[04:15.990]\u800c\u5728\u4f60\u5230\u6765\u4e4b\u540e\n[04:18.230]\u5b83\u663e\u5f97\u5982\u6b64\u6e05\u7626\n[04:20.890]\u6211\u60f3\u7ed9\u4f60\u80fd\u5954\u8dd1\u7684\u5cb8\u5934\n[04:24.500]\u8ba9\u4f60\u5982\u540c\u738b\u540e\n"},{"title":"\u6a31\u5439\u96ea","author":"\u5468\u4f20\u96c4","pic":"https:\/\/p1.music.126.net\/8FaINzPb3xj1S9tyG16Ang==\/6650945837921965.jpg?param=200y200","url":"https:\/\/music.163.com\/song\/media\/outer\/url?id=29572046.mp3","lyc":"[00:00.000] \u4f5c\u66f2 : \u5468\u4f20\u96c4\n[00:01.000] \u4f5c\u8bcd : \u9648\u4fe1\u8363\n[00:28.09]\u8d4f\u82b1\u5b63\u8282\u51fa\u53bb\u8d70\u8d70\n[00:32.62]\u65c5\u884c\u7684\u5fc3\u60c5\u5f88\u8f7b\u677e\n[00:37.50]\u6625\u5929\u8fc7\u5b8c \u5fe7\u4f24\u80cc\u540e \u7559\u4e0b\u4ec0\u4e48\n[00:45.08]\n[00:47.16]\u65f6\u5e38\u770b\u89c1\u5f53\u65f6\u7684\u6211\n[00:51.92]\u6709\u4e9b\u51b3\u5b9a\u4e0d\u5047\u601d\u7d22\n[00:56.50]\u65e0\u7aef\u575a\u6301\u8f9b\u82e6 \u4e0d\u77e5\u4e3a\u4ec0\u4e48\n[01:05.41]\n[01:05.75]\u7c89\u8272\u6a31\u82b1\u5ffd\u7136\u95f4 \u8fce\u7740\u98ce\n[01:10.27]\u5439\u8d77\u4e86\u5e74\u5c11\u7684\u8f7b\u72c2 \u6f47\u6d12\u7684\u653e\u7eb5\n[01:15.75]\u56de\u5fc6\u98d8\u5982\u96ea \u6ee1\u6ee1\u7684\u9065\u8fdc\u7684\u4e61\u6101\n[01:24.20]\n[01:24.93]\u6211\u66fe\u6df1\u6df1\u7231\u8fc7\u7684 \u767d\u96ea\u822c\u7684\u4f60\n[01:30.24]\u5728\u54ea\u5ea7\u57ce\u5e02 \u8c01\u7684\u59bb\n[01:34.25]\u6de1\u6de1\u60f3\u8d77 \u65e0\u5173\u8fc7\u53bb\n[01:43.67]\n[02:04.05]\u65f6\u5e38\u60f3\u8d77\u5b64\u5355\u7684\u6211\n[02:08.53]\u65c5\u884c\u53ea\u662f\u4e3a\u4e86\u9003\u8131\n[02:13.22]\u62d6\u7740\u75b2\u60eb\u8f9b\u82e6 \u4e0d\u4e0e\u4eba\u8054\u7edc\n[02:22.62]\u7c89\u8272\u6a31\u82b1\u5ffd\u7136\u95f4 \u8fce\u7740\u98ce\n[02:27.07]\u5439\u8d77\u4e86\u5e74\u5c11\u7684\u8f7b\u72c2 \u6f47\u6d12\u7684\u653e\u7eb5\n[02:32.38]\u56de\u5fc6\u98d8\u5982\u96ea \u6ee1\u6ee1\u7684\u9065\u8fdc\u7684\u4e61\u6101\n[02:41.33]\n[02:41.66]\u6211\u66fe\u6df1\u6df1\u7231\u8fc7\u7684 \u767d\u96ea\u822c\u7684\u4f60\n[02:46.71]\u5728\u54ea\u5ea7\u57ce\u5e02 \u8c01\u7684\u59bb\n[02:51.06]\u6de1\u6de1\u60f3\u8d77 \u65e0\u5173\u8fc7\u53bb\n[03:05.79]\u7c89\u8272\u6a31\u82b1\u5ffd\u7136\u95f4 \u8fce\u7740\u98ce\n[03:10.16]\u5439\u8d77\u4e86\u5e74\u5c11\u7684\u8f7b\u72c2 \u6f47\u6d12\u7684\u653e\u7eb5\n[03:15.82]\u56de\u5fc6\u98d8\u5982\u96ea \u6ee1\u6ee1\u7684\u9065\u8fdc\u7684\u4e61\u6101\n[03:24.14]\n[03:25.07]\u6211\u66fe\u6df1\u6df1\u7231\u8fc7\u7684 \u767d\u96ea\u822c\u7684\u4f60\n[03:29.97]\u5728\u54ea\u5ea7\u57ce\u5e02 \u8c01\u7684\u59bb\n[03:34.34]\u6de1\u6de1\u60f3\u8d77 \u65e0\u5173\u8fc7\u53bb\n"},{"title":"\u7ed9\u81ea\u5df1\u7684\u60c5\u4e66","author":"\u738b\u83f2","pic":"https:\/\/p1.music.126.net\/E0ynLFbtqou5cu1iJrvUEQ==\/109951163081327547.jpg?param=200y200","url":"https:\/\/music.163.com\/song\/media\/outer\/url?id=299604.mp3","lyc":"[00:00.000] \u4f5c\u66f2 : C.Y.Kong\n[00:00.358] \u4f5c\u8bcd : \u6797\u5915\n[00:01.75]\n[00:12.31]\u8bf7\n[00:12.97]\u4e0d\u8981\u7070\u5fc3\n[00:15.06]\u4f60\u4e5f\u4f1a\u6709\u4eba\u5992\u5fcc\n[00:17.20]\n[00:17.99]\u4f60\n[00:18.65]\u4ef0\u671b\u5230\u592a\u9ad8\n[00:20.74]\u8d2c\u4f4e\u7684\u53ea\u6709\u81ea\u5df1\n[00:22.78]\n[00:23.58]\u522b\n[00:24.32]\u8361\u5931\u592a\u65e9\n[00:26.32]\u65c5\u6e38\u6709\u592a\u591a\u80dc\u5730\n[00:28.52]\n[00:29.26]\u4f60\n[00:29.96]\u8bb0\u4f4f\u4f60\u53d1\u80a4\n[00:32.12]\u4f1a\u4e0e\u4f60\u5e86\u795d\u94bb\u79a7\n[00:34.25]\n[00:35.00]La ...\n[00:36.30]\u6170\u85c9\u81ea\u5df1\n[00:37.61]\n[00:37.91]\u5f00\u5fc3\u7684\u4e1c\u897f\n[00:38.81]\u8981\u4e13\u5fc3\u8bb0\u8d77\n[00:40.35]\n[00:40.75]La ...\n[00:42.14]\u7231\u62a4\u81ea\u5df1\n[00:43.28]\n[00:43.58]\u662f\u5730\u4e0a\u62fe\u5230\u7684\n[00:45.04]\u771f\u7406\n[00:46.27]\n[00:46.52]\u5199\n[00:47.07]\u8fd9\u9ad8\u8d35\u60c5\u4e66\n[00:48.07]\n[00:48.46]\u7528\u81ea\u8a00\u81ea\u8bed\n[00:49.67]\u505a\u6211\u7684\u5929\u4e66\n[00:51.11]\n[00:51.41]\u81ea\u5df1\u90fd\u4e0d\u7231\n[00:53.05]\u600e\u4e48\u76f8\u7231\n[00:54.64]\n[00:55.00]\u600e\u4e48\u53ef\n[00:55.75]\u7ed9\u7231\u4eba\u597d\u5904\n[00:57.50]\n[00:57.80]\u8fd9\n[00:58.45]\u5343\u65a4\u91cd\u60c5\u4e66\n[00:59.72]\n[00:59.97]\u5728\u591c\u9611\u9759\u5904\n[01:01.27]\u5982\u95e8\u524d\u5927\u6811\n[01:02.57]\n[01:02.86]\u6ca1\u6709\u4ed6\u501a\u9760\n[01:04.56]\u5f52\u5bb6\u4e5f\u4e0d\u5fc5\u6487\u96e8\n[01:07.34]\n[01:20.90]\u8bf7\n[01:21.55]\u4e0d\u8981\u54c0\u4f24\n[01:23.64]\u6211\u4f1a\u5f53\u4f60\u662f\u5076\u50cf\n[01:25.83]\n[01:26.58]\u4f60\n[01:27.33]\u8981\u522b\u4eba\u601c\u7231\n[01:29.37]\u5148\u5b89\u88c5\u4e00\u4e2a\u836f\u7bb1\n[01:31.60]\n[01:32.25]\u505a\n[01:33.00]\u4ec0\u4e48\u4e5f\u597d\n[01:34.58]\n[01:35.08]\u522b\u4e3a\u7740\n[01:35.83]\u5f97\u5230\u8d5e\u8d4f\n[01:37.22]\n[01:37.92]\u4f60\n[01:38.62]\u8981\u5f3a\u58ee\u5230\u5e95\n[01:40.66]\u518d\u53bb\u66ff\u5bf9\u65b9\u8bbe\u60f3\n[01:42.80]\n[01:43.55]La ...\n[01:44.95]\u6170\u85c9\u81ea\u5df1\n[01:46.07]\n[01:46.47]\u5f00\u5fc3\u7684\u4e1c\u897f\n[01:47.47]\u8981\u4e13\u5fc3\u8bb0\u8d77\n[01:48.91]\n[01:49.31]La ...\n[01:50.55]\u7231\u62a4\u81ea\u5df1\n[01:51.80]\n[01:52.19]\u662f\u5730\u4e0a\u62fe\u5230\u7684\n[01:53.55]\u771f\u7406\n[01:54.83]\n[01:55.13]\u5199\n[01:55.73]\u8fd9\u9ad8\u8d35\u60c5\u4e66\n[01:56.87]\n[01:57.17]\u7528\u81ea\u8a00\u81ea\u8bed\n[01:58.36]\u505a\u6211\u7684\u5929\u4e66\n[01:59.76]\n[02:00.11]\u81ea\u5df1\u90fd\u4e0d\u7231\n[02:01.65]\u600e\u4e48\u76f8\u7231\n[02:03.14]\n[02:03.65]\u600e\u4e48\u53ef\n[02:04.45]\u7ed9\u7231\u4eba\u597d\u5904\n[02:06.20]\n[02:06.50]\u8fd9\n[02:07.05]\u5343\u65a4\u91cd\u60c5\u4e66\n[02:08.34]\n[02:08.64]\u5728\u591c\u9611\u9759\u5904\n[02:09.89]\u5982\u95e8\u524d\u5927\u6811\n[02:11.28]\n[02:11.59]\u6ca1\u6709\u4ed6\u501a\u9760\n[02:13.03]\u5f52\u5bb6\u4e5f\u4e0d\u5fc5\u6487\u96e8\n[02:15.87]\n[02:43.68]La ...\n[02:45.17]La ...\n[02:46.67]La ...\n[02:48.56]\n[02:49.35]La ...\n[02:50.90]La ...\n[02:52.24]La ...\n[02:54.19]\n[02:54.99]\u629b\u5f97\u5f00\u624b\u91cc\u73a9\u5177\n[02:57.87]\u5148\u61c2\u5f97\u597d\u597d\u8fdb\u7761\n[02:59.96]\n[03:00.66]\u6df1\u8c37\u90fd\u6500\u8fc7\u540e\n[03:02.10]\u4ece\u6ce5\u6cde\u5bfb\u5230\u8fd9\n[03:03.46]\n[03:03.76]\u4e0d\u7518\u5fc3\u76f8\u4fe1\u7684\n[03:05.00]\u91d1\u53e5\n[03:06.21]\n[03:06.51]\u5199\n[03:06.92]\u8fd9\u9ad8\u8d35\u60c5\u4e66\n[03:08.27]\n[03:08.62]\u7528\u81ea\u8a00\u81ea\u8bed\n[03:09.76]\u505a\u6211\u7684\u5929\u4e66\n[03:11.30]\n[03:11.65]\u81ea\u5df1\u90fd\u4e0d\u7231\n[03:13.16]\u600e\u4e48\u76f8\u7231\n[03:14.65]\n[03:15.10]\u600e\u4e48\u53ef\n[03:15.79]\u7ed9\u7231\u4eba\u597d\u5904\n[03:17.61]\n[03:17.96]\u8fd9\n[03:18.55]\u5343\u65a4\u91cd\u60c5\u4e66\n[03:19.70]\n[03:20.00]\u5728\u591c\u9611\u9759\u5904\n[03:21.19]\u5982\u95e8\u524d\u5927\u6811\n[03:22.69]\n[03:23.04]\u4ed6\u4e0d\u53ef\u501a\u9760\n[03:24.53]\u5f52\u5bb6\u4e5f\u4e0d\u5fc5\u6487\u96e8\n[03:27.33]\n[03:28.69]\u6211\u8981\u7ed9\u6211\u5199\n[03:29.73]\u8fd9\u9ad8\u8d35\u60c5\u4e66\n[03:31.13]\n[03:31.42]\u7528\u81ea\u8a00\u81ea\u8bed\n[03:32.62]\u505a\u6211\u7684\u5929\u4e66\n[03:33.97]\n[03:34.27]\u81ea\u5df1\u90fd\u4e0d\u7231\n[03:35.81]\u600e\u4e48\u76f8\u7231\n[03:37.36]\n[03:37.71]\u600e\u4e48\u53ef\n[03:38.61]\u7ed9\u7231\u4eba\u597d\u5904\n[03:39.95]\n[03:40.25]\u51ed\u7740\u6211\u8fd9\n[03:41.14]\u5343\u65a4\u91cd\u60c5\u4e66\n[03:42.50]\n[03:42.79]\u5728\u591c\u9611\u9759\u5904\n[03:43.99]\u5982\u95e8\u524d\u5927\u6811\n[03:45.43]\n[03:45.78]\u6ca1\u6709\u4ed6\u501a\u9760\n[03:47.22]\u5f52\u5bb6\u4e5f\u4e0d\u5fc5\u6487\u96e8\n[03:50.81]\n"}];
-    </script>
-    <script src="js/music.js?v=1.1" type="text/javascript"></script>
-    <script src="js/play.js?v=1.1" type="text/javascript"></script>
-	<script type="text/javascript" src="https://js.users.51.la/19692655.js"></script>
-  </body>
+	<head>
+		<meta charset="utf-8">
+		<title>移动手势音乐播放</title>
+		<meta name="keywords" content="封尘,lovefc,fc,个人原创,手势操作,移动播放器,lovefc.cn" />
+		<meta name="description" content="封尘,lovefc,fc,个人原创,手势操作,移动播放器,lovefc.cn" />
+		<meta name="renderer" content="webkit">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<link rel="icon" href="favicon.ico" type="image/x-icon" />
+		<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+		<!-- 字体文件 -->
+		<link href="css/fcicon.css" rel="stylesheet">
+		<!-- 背景css -->
+		<link href="css/bg.css?v=0.0.1" rel="stylesheet">
+		<!-- 播放器css -->
+		<link href="css/fcmusic.css?v=0.1.6" rel="stylesheet">
+		<!-- 仿ios弹窗插件css -->
+		<link href="alert/alert.css" rel="stylesheet">
+		<script src="https://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+		<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/parallax.js/1.5.0/parallax.min.js"></script>-->
+		<!-- 仿ios弹窗插件 -->
+		<script src="alert/alert.js" type="text/javascript"></script>
+		<!-- js原生触屏位置操作插件--Sition -->
+		<script src="js/sition.min.js?v=0.1.6.1" type="text/javascript"></script>
+	</head>
+
+	<body>
+		<!-- 网页背景部分,这个其实你可以自定义网页背景，我只是为了好看，所有用了这个 -->
+		<div id="scene" class="stars-wrapper">
+			<div data-depth="0.00" class="layer"></div>
+			<div data-depth="0.30" class="stars-cluster stars-cluster-1">
+				<div class="star star-1"></div>
+				<div class="star star-2"></div>
+				<div class="star star-3"></div>
+				<div class="star star-4"></div>
+				<div class="star star-5"></div>
+				<div class="star star-6"></div>
+				<div class="star star-7"></div>
+				<div class="star star-8"></div>
+				<div class="star star-9"></div>
+				<div class="star star-10"></div>
+				<div class="star star-11"></div>
+				<div class="star star-12"></div>
+				<div class="star star-13"></div>
+				<div class="star star-14"></div>
+				<div class="star star-15"></div>
+				<div class="star star-16"></div>
+				<div class="star star-17"></div>
+				<div class="star star-18"></div>
+				<div class="star star-19"></div>
+				<div class="star star-20"></div>
+				<div class="star star-21"></div>
+				<div class="star star-22"></div>
+				<div class="star star-23"></div>
+				<div class="star star-24"></div>
+				<div class="star star-25"></div>
+				<div class="star star-26"></div>
+				<div class="star star-27"></div>
+				<div class="star star-28"></div>
+				<div class="star star-29"></div>
+				<div class="star star-30"></div>
+				<div class="star star-31"></div>
+				<div class="star star-32"></div>
+				<div class="star star-33"></div>
+				<div class="star star-34"></div>
+				<div class="star star-35"></div>
+				<div class="star star-36"></div>
+				<div class="star star-37"></div>
+				<div class="star star-38"></div>
+				<div class="star star-39"></div>
+				<div class="star star-40"></div>
+			</div>
+			<div data-depth="0.50" class="stars-cluster stars-cluster-2">
+				<div class="star star-1"></div>
+				<div class="star star-2"></div>
+				<div class="star star-3"></div>
+				<div class="star star-4"></div>
+				<div class="star star-5"></div>
+				<div class="star star-6"></div>
+				<div class="star star-7"></div>
+				<div class="star star-8"></div>
+				<div class="star star-9"></div>
+				<div class="star star-10"></div>
+				<div class="star star-11"></div>
+				<div class="star star-12"></div>
+				<div class="star star-13"></div>
+				<div class="star star-14"></div>
+				<div class="star star-15"></div>
+				<div class="star star-16"></div>
+				<div class="star star-17"></div>
+				<div class="star star-18"></div>
+				<div class="star star-19"></div>
+				<div class="star star-20"></div>
+				<div class="star star-21"></div>
+				<div class="star star-22"></div>
+				<div class="star star-23"></div>
+				<div class="star star-24"></div>
+				<div class="star star-25"></div>
+				<div class="star star-26"></div>
+				<div class="star star-27"></div>
+				<div class="star star-28"></div>
+				<div class="star star-29"></div>
+				<div class="star star-30"></div>
+				<div class="star star-31"></div>
+				<div class="star star-32"></div>
+				<div class="star star-33"></div>
+				<div class="star star-34"></div>
+				<div class="star star-35"></div>
+				<div class="star star-36"></div>
+				<div class="star star-37"></div>
+				<div class="star star-38"></div>
+				<div class="star star-39"></div>
+				<div class="star star-40"></div>
+			</div>
+			<div data-depth="0.90" class="stars-cluster stars-cluster-3">
+				<div class="star star-1"></div>
+				<div class="star star-2"></div>
+				<div class="star star-3"></div>
+				<div class="star star-4"></div>
+				<div class="star star-5"></div>
+				<div class="star star-6"></div>
+				<div class="star star-7"></div>
+				<div class="star star-8"></div>
+				<div class="star star-9"></div>
+				<div class="star star-10"></div>
+				<div class="star star-11"></div>
+				<div class="star star-12"></div>
+				<div class="star star-13"></div>
+				<div class="star star-14"></div>
+				<div class="star star-15"></div>
+			</div>
+		</div>
+		<!-- 背景结束了 -->
+
+		<!-- 播放器部分 -->
+
+		<div class="fcmusic">
+			<div class="items-group">
+				<div class="item active">
+					<div class="block" id="fcmusic">
+						<span class="circleLight"></span>
+						<div class="text">
+							<span class="icon">
+								<img src="http://p2.music.126.net/WoR2LbM1IFauFpvhBWOjqA==/6642149743396577.jpg?param=300x300" id="round_icon"
+								 class="round_icon play-tx"></span>
+							<span id="tools">
+								<i class="fc-icon fc-icon-left play-left"></i>
+								<i class="fc-icon fc-icon-play play"></i>
+								<i class="fc-icon fc-icon-right play-right"></i>
+								<br /><br />
+								<input type="range" name="PlayProgress" id="PlayProgress" value="0" onchange="music.playProgress(this.value)">
+							</span>
+							<p class="songname" id="lyctext"></p>
+							<div class="scale_panel">
+								<div class="scale" id="progressBar">
+									<div></div>
+									<span id="progressBtn"></span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- 播放器部分 -->
+
+		<!-- 离子背景加载js -->
+		<script>
+			let music_api = 'https://api.lovefc.cn/music2/api.php',
+				music_search_api = "https://api.lovefc.cn/music2/search.php?str=";
+		</script>
+		<script src="js/loader.js"></script>
+		<script src="js/mjs.min.js?v=20200618" type="text/javascript"></script>
+		<script src="js/play.js?v=20200618" type="text/javascript"></script>
+	</body>
 
 </html>

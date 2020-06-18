@@ -4,6 +4,10 @@
  * author:lovefc
  */
 header("Content-type:text/html;Charset=utf8");
+header('Access-Control-Allow-Origin:*');
+header('Access-Control-Allow-Methods:GET');
+header('Access-Control-Allow-Headers:x-requested-with');
+
 function netease_http($url, $data = false)
 {
     $SSL      = substr($url, 0, 8) == "https://" ? true : false; //判断是不是https链接
