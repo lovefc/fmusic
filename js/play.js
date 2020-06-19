@@ -3,8 +3,8 @@
  * author：lovefc
  * blog：http://lovefc.cn
  */
- 
-let musiclist = {}; 
+
+let musiclist = {};
 // 获取歌单json
 $.ajax({
 	url: music_api,
@@ -12,7 +12,7 @@ $.ajax({
 	async: false,
 	data: {},
 	success: function(data) {
-		musiclist = eval('('+data+')');
+		musiclist = eval('(' + data + ')');
 	},
 	fail: function() {
 		alert('歌单获取失败！');
@@ -204,15 +204,15 @@ Sition('fcmusic', 'upCenter',
 
 // 单曲循环
 Sition('fcmusic', 'leftUp',
-function() {
-    music.order = 2;
-    $.alertView("已开启单曲循环");
-});
+	function() {
+		music.order = 2;
+		$.alertView("已开启单曲循环");
+	});
 Sition('fcmusic', 'rightUp',
-function() {
-    music.order = 1;
-    $.alertView("已关闭单曲循环");
-});
+	function() {
+		music.order = 1;
+		$.alertView("已关闭单曲循环");
+	});
 
 // 长按搜索
 Sition('fcmusic', 'clicked',
@@ -233,7 +233,11 @@ Sition('fcmusic', 'clicked',
 								} else {
 									let json2 = eval('(' + result + ')');
 									music.jsonToArray(json2);
-									music.autoPlay();
+									music.autoPlay(function() {
+										$(".play").attr("class", 'fc-icon fc-icon-pause play');
+										$('#round_icon').addClass('play-tx2');
+										playStatus = 1;
+									});
 								}
 							}
 						})
